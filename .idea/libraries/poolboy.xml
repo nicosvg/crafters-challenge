@@ -2,6 +2,7 @@
   <library name="poolboy" type="mix">
     <CLASSES>
       <root url="file://$PROJECT_DIR$/_build/dev/lib/poolboy/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/test/lib/poolboy/ebin" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

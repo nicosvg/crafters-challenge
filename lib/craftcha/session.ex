@@ -1,16 +1,29 @@
 defmodule Craftcha.Session do
-  use Session
 
   def start_link do
-    Agent.start_link(fn -> %{} end)
+    Agent.start_link(fn -> %{} end, name: __MODULE__)
   end
 
-  def add_server(pid, host) do
+  def add_server(uuid, hostname, name) do
     Agent.update(
-      pid,
+      __MODULE__,
       fn (state) ->
-        Map.put(state, host, 3)
+        Map.put(state, uuid, %{hostname: hostname, name: name, level: 0})
       end
     )
   end
+
+  def get_servers() do
+    Agent.get(
+      __MODULE__,
+      fn (state) ->
+        state
+      end
+    )
+  end
+
+  def get_server(idServer) do
+    Agent.get(__MODULE__, fn (state) -> Map.get(state, idServer) end)
+  end
+
 end

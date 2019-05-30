@@ -2,6 +2,7 @@
   <library name="poison" type="mix">
     <CLASSES>
       <root url="file://$PROJECT_DIR$/_build/dev/lib/poison/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/test/lib/poison/ebin" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

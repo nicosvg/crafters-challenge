@@ -1,7 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoTestManager">
+    <enabled-run-configurations>
+      <run-configuration type="MixExUnitRunConfigurationType" name="Mix ExUnit test/craftcha/session_test.exs" />
+      <run-configuration type="MixExUnitRunConfigurationType" name="Mix ExUnit test/craftcha" />
+    </enabled-run-configurations>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="46634341-4e71-40db-8cc1-2cd563e061f2" name="Default Changelist" comment="" />
+    <list default="true" id="46634341-4e71-40db-8cc1-2cd563e061f2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/craftcha/player.ex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/craftcha/player_test.exs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/craftcha/session_test.exs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/connection.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/connection.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/cowboy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/cowboy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/cowlib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/cowlib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/db_connection.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/db_connection.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/decimal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/decimal.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/ecto.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/ecto.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/gettext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/gettext.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mime.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mime.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/phoenix.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/phoenix.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/phoenix_ecto.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/phoenix_ecto.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/phoenix_html.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/phoenix_html.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/phoenix_pubsub.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/phoenix_pubsub.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/plug.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/plug.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/plug_cowboy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/plug_cowboy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/plug_crypto.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/plug_crypto.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/poison.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/poison.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/poolboy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/poolboy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/postgrex.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/postgrex.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/ranch.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/ranch.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/craftcha.iml" beforeDir="false" afterPath="$PROJECT_DIR$/craftcha.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/craftcha/application.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/craftcha/application.ex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/craftcha/session.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/craftcha/session.ex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/craftcha_web/templates/layout/app.html.eex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/craftcha_web/templates/layout/app.html.eex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/craftcha_web/templates/page/index.html.eex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/craftcha_web/templates/page/index.html.eex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix.exs" beforeDir="false" afterPath="$PROJECT_DIR$/mix.exs" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/_build/dev/lib/connection/" />
     <ignored path="$PROJECT_DIR$/_build/dev/lib/cowboy/" />
@@ -40,63 +77,128 @@
     <option name="CLEAR_OUTPUT_DIRECTORY" value="false" />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/craftcha/application.ex">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/craftcha/session.ex">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/craftcha/repo.ex">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/craftcha.ex">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/craftcha_web.ex">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.35642317">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/lib/craftcha/application.ex">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="288">
+                  <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/lib/craftcha/repo.ex">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/lib/craftcha/session.ex">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="180">
+                  <caret line="10" column="71" selection-start-line="10" selection-start-column="71" selection-end-line="10" selection-end-column="71" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/test/craftcha/player_test.exs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="396">
+                  <caret line="22" selection-start-line="22" selection-end-line="22" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/test/craftcha/session_test.exs">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/lib/craftcha_web/endpoint.ex">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="126">
+                  <caret line="7" column="65" selection-start-line="7" selection-start-column="65" selection-end-line="7" selection-end-column="65" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/lib/craftcha.ex">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/lib/craftcha_web.ex">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="396">
+                  <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/lib/craftcha/player.ex">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="396">
+                  <caret line="22" selection-start-line="22" selection-end-line="22" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>hello</find>
+      <find>Welcome to</find>
+      <find>inets</find>
+      <find>&quot;test&quot;</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/lib/craftcha/session.exs" />
+        <option value="$PROJECT_DIR$/lib/craftcha_web/templates/layout/app.html.eex" />
+        <option value="$PROJECT_DIR$/lib/craftcha_web/templates/page/index.html.eex" />
+        <option value="$PROJECT_DIR$/mix.exs" />
+        <option value="$PROJECT_DIR$/test/craftcha_web/controllers/session_test.exs" />
+        <option value="$PROJECT_DIR$/lib/craftcha/application.ex" />
+        <option value="$PROJECT_DIR$/test/craftcha/session_test.exs" />
+        <option value="$PROJECT_DIR$/test/craftcha/player_test.exs" />
         <option value="$PROJECT_DIR$/lib/craftcha/session.ex" />
+        <option value="$PROJECT_DIR$/lib/craftcha/player.ex" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="27" />
-    <option name="width" value="1920" />
+    <option name="y" value="25" />
+    <option name="width" value="960" />
     <option name="height" value="1053" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -124,24 +226,38 @@
             <path>
               <item name="craftcha" type="b2602c69:ProjectViewProjectNode" />
               <item name="craftcha" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="craftcha_web" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="auto.test.manager.delay" value="2000" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.vendoring.notification.had.been.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/test/craftcha" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="/usr/bin/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test/craftcha" />
+      <recent name="$PROJECT_DIR$/lib/craftcha" />
+      <recent name="$PROJECT_DIR$/test/craftcha_web/controllers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test/craftcha" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -155,6 +271,29 @@
       </list>
     </option>
   </component>
+  <component name="RunManager" selected="Elixir Mix ExUnit.Mix ExUnit test/craftcha">
+    <configuration name="Mix ExUnit test/craftcha" type="MixExUnitRunConfigurationType" factoryName="Elixir Mix ExUnit" temporary="true">
+      <mix-test>
+        <argument>test/craftcha</argument>
+      </mix-test>
+      <working-directory url="file://$PROJECT_DIR$" />
+      <module-filters inherit-application-module-filters="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Mix ExUnit test/craftcha/session_test.exs" type="MixExUnitRunConfigurationType" factoryName="Elixir Mix ExUnit">
+      <mix-test>
+        <argument>test/craftcha/session_test.exs</argument>
+      </mix-test>
+      <working-directory url="file://$PROJECT_DIR$" />
+      <module-filters inherit-application-module-filters="true" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Elixir Mix ExUnit.Mix ExUnit test/craftcha" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="46634341-4e71-40db-8cc1-2cd563e061f2" name="Default Changelist" comment="" />
@@ -162,65 +301,187 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1558719344602</updated>
-      <workItem from="1558719348014" duration="809000" />
+      <workItem from="1558719348014" duration="1406000" />
+      <workItem from="1558771556710" duration="3746000" />
+      <workItem from="1558869152427" duration="4185000" />
+      <workItem from="1558898499610" duration="2518000" />
+      <workItem from="1558962122635" duration="4391000" />
+      <workItem from="1558967049123" duration="1225000" />
+      <workItem from="1559030930944" duration="5893000" />
+      <workItem from="1559131078686" duration="699000" />
+      <workItem from="1559156142270" duration="1180000" />
+      <workItem from="1559210097654" duration="1755000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="Mix_ExUnit_test_craftcha - 2019.05.27 at 15h 29m 22s.xml">
+      <configuration name="Mix ExUnit test/craftcha" configurationId="MixExUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Mix_ExUnit_test_craftcha - 2019.05.27 at 15h 29m 35s.xml">
+      <configuration name="Mix ExUnit test/craftcha" configurationId="MixExUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Mix_ExUnit_test_craftcha - 2019.05.27 at 15h 29m 50s.xml">
+      <configuration name="Mix ExUnit test/craftcha" configurationId="MixExUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Mix_ExUnit_test_craftcha - 2019.05.27 at 15h 29m 58s.xml">
+      <configuration name="Mix ExUnit test/craftcha" configurationId="MixExUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Mix_ExUnit_test_craftcha - 2019.05.27 at 15h 30m 02s.xml">
+      <configuration name="Mix ExUnit test/craftcha" configurationId="MixExUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Mix_ExUnit_test_craftcha - 2019.05.27 at 15h 30m 05s.xml">
+      <configuration name="Mix ExUnit test/craftcha" configurationId="MixExUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Mix_ExUnit_test_craftcha - 2019.05.27 at 15h 30m 08s.xml">
+      <configuration name="Mix ExUnit test/craftcha" configurationId="MixExUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Mix_ExUnit_test_craftcha - 2019.05.27 at 15h 30m 12s.xml">
+      <configuration name="Mix ExUnit test/craftcha" configurationId="MixExUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Mix_ExUnit_test_craftcha - 2019.05.27 at 15h 30m 59s.xml">
+      <configuration name="Mix ExUnit test/craftcha" configurationId="MixExUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Mix_ExUnit_test_craftcha - 2019.05.28 at 15h 22m 50s.xml">
+      <configuration name="Mix ExUnit test/craftcha" configurationId="MixExUnitRunConfigurationType" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="809000" />
+    <option name="totallyTimeSpent" value="26998000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Designer" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2497332" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15261473" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.34242094" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991276" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.33696836" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info anchor="right" x="0" y="0" width="430" height="853" id="Documentation" order="6" side_tool="true" weight="0.32977587" />
+      <window_info anchor="right" id="SciView" order="7" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/craftcha.ex">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/structural.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="584">
+          <caret line="165" column="16" selection-start-line="165" selection-start-column="16" selection-end-line="165" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/craftcha_web/templates/layout/app.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/craftcha_web/templates/page/index.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/craftcha_web/controllers/page_controller_test.exs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test_helper.exs">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/craftcha_web.ex">
+    <entry file="file://$PROJECT_DIR$/lib/craftcha_web/channels/user_socket.ex">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/craftcha_web/controllers/page_controller.ex">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/support/conn_case.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="10" selection-start-column="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/craftcha_web/router.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/craftcha/application.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/craftcha/repo.ex">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/craftcha/application.ex">
+    <entry file="file://$PROJECT_DIR$/test/craftcha/player_test.exs">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="396">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/craftcha/session_test.exs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/craftcha_web/endpoint.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="65" selection-start-line="7" selection-start-column="65" selection-end-line="7" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/craftcha.ex">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/craftcha_web.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/craftcha/session.ex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        <state relative-caret-position="180">
+          <caret line="10" column="71" selection-start-line="10" selection-start-column="71" selection-end-line="10" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/craftcha/player.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
