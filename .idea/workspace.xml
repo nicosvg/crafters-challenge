@@ -8,36 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46634341-4e71-40db-8cc1-2cd563e061f2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/craftcha/player.ex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/craftcha/player_test.exs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/craftcha/session_test.exs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/connection.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/connection.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/cowboy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/cowboy.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/cowlib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/cowlib.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/db_connection.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/db_connection.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/decimal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/decimal.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/ecto.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/ecto.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/gettext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/gettext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mime.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mime.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/phoenix.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/phoenix.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/phoenix_ecto.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/phoenix_ecto.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/phoenix_html.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/phoenix_html.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/phoenix_pubsub.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/phoenix_pubsub.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/plug.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/plug.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/plug_cowboy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/plug_cowboy.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/plug_crypto.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/plug_crypto.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/poison.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/poison.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/poolboy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/poolboy.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/postgrex.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/postgrex.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/ranch.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/ranch.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/craftcha.iml" beforeDir="false" afterPath="$PROJECT_DIR$/craftcha.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/craftcha/application.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/craftcha/application.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/craftcha/session.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/craftcha/session.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/craftcha_web/templates/layout/app.html.eex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/craftcha_web/templates/layout/app.html.eex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/craftcha_web/templates/page/index.html.eex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/craftcha_web/templates/page/index.html.eex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mix.exs" beforeDir="false" afterPath="$PROJECT_DIR$/mix.exs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/craftcha/player.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/craftcha/player.ex" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/_build/dev/lib/connection/" />
@@ -100,8 +72,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/lib/craftcha/session.ex">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="10" column="71" selection-start-line="10" selection-start-column="71" selection-end-line="10" selection-end-column="71" />
+                <state relative-caret-position="432">
+                  <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
                 </state>
               </provider>
             </entry>
@@ -150,8 +122,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/lib/craftcha/player.ex">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="396">
-                  <caret line="22" selection-start-line="22" selection-end-line="22" />
+                <state relative-caret-position="185">
+                  <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
                 </state>
               </provider>
             </entry>
@@ -199,6 +171,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -234,7 +207,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -310,7 +282,8 @@
       <workItem from="1559030930944" duration="5893000" />
       <workItem from="1559131078686" duration="699000" />
       <workItem from="1559156142270" duration="1180000" />
-      <workItem from="1559210097654" duration="1755000" />
+      <workItem from="1559210097654" duration="2265000" />
+      <workItem from="1559412565249" duration="382000" />
     </task>
     <servers />
   </component>
@@ -347,13 +320,12 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26998000" />
+    <option name="totallyTimeSpent" value="27890000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15261473" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15421557" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -471,17 +443,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/craftcha/session.ex">
+    <entry file="file://$PROJECT_DIR$/lib/craftcha/player.ex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="71" selection-start-line="10" selection-start-column="71" selection-end-line="10" selection-end-column="71" />
+        <state relative-caret-position="185">
+          <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/craftcha/player.ex">
+    <entry file="file://$PROJECT_DIR$/lib/craftcha/session.ex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="432">
+          <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
         </state>
       </provider>
     </entry>

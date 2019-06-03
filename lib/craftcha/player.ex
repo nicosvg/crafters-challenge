@@ -20,7 +20,7 @@ defmodule Craftcha.Player do
   def check_level(uuid, level) do
     case level do
       0 -> check_level_0(uuid)
-      1 -> check_level_1(uuid)
+#      1 -> check_level_1(uuid)
     end
   end
 
