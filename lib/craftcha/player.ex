@@ -1,4 +1,7 @@
 defmodule Craftcha.Player do
+  alias Craftcha.HttpRequest
+  alias Craftcha.HttpResponse
+
   defstruct hostname: "", name: "", level: 0
 
   def add_player(hostname, name) do
@@ -17,10 +20,26 @@ defmodule Craftcha.Player do
     Enum.map(0..playerLevel, fn level -> check_level(uuid, level) end)
   end
 
+  @doc """
+  Do HTTP request and validate the response
+  """
+  def check_level(uuid, request, check_function) do
+    hostname = get_player(uuid).hostname
+    request_with_hostname = %HttpRequest{request | hostname: hostname}
+    {result, response} = HttpRequest.do_http_request(request_with_hostname)
+    case result do
+      :ok ->
+        response
+        |> HttpRequest.parseResponse
+        |> check_function.()
+      :error ->
+        {false, "Could not connect"}
+    end
+  end
+
   def check_level(uuid, level) do
     case level do
       0 -> check_level_0(uuid)
-#      1 -> check_level_1(uuid)
     end
   end
 
@@ -28,34 +47,13 @@ defmodule Craftcha.Player do
   The player must return a 200 OK with 'Hello World!' as a response
   """
   def check_level_0(uuid) do
-    hostname = get_player(uuid).hostname
-    {result, response} = :httpc.request(:get, {hostname, []}, [], [])
-    case result do
-      :ok -> validate_level_0(response)
-      :error -> {false, "Could not connect"}
-    end
+    request = %HttpRequest{verb: :get, route: ""}
+    check_level(uuid, request, &validate_level_0/1)
   end
 
-  def validate_level_0({{_, status, _}, _headers, res}) do
+  def validate_level_0(%HttpResponse{status: status, body: body}) do
     status == 200
-    && res == 'Hello World!'
+    && body == 'Hello World!'
   end
-
-  @doc """
-  The player must return a 200 OK with 'Hello World!' as a response
-  """
-#  def check_level_1(uuid) do
-#    hostname = get_player(uuid).hostname
-#    {result, response} = :httpc.request(:get, {hostname <> '/status', []}, [], [])
-#    case result do
-#      :ok -> validate_level_0(response)
-#      :error -> {false, "Could not connect"}
-#    end
-#  end
-#
-#  def validate_level_1({{_, status, _}, _headers, res}) do
-#    status == 200
-#    && res == 'Hello World!'
-#  end
 
 end
