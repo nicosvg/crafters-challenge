@@ -26,4 +26,8 @@ defmodule Craftcha.Session do
     Agent.get(__MODULE__, fn (state) -> Map.get(state, idServer) end)
   end
 
+  def next_level(idServer) do
+
+  end
+
 end
