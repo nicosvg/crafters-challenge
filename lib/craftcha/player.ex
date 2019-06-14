@@ -1,8 +1,9 @@
 defmodule Craftcha.Player do
   alias Craftcha.HttpRequest
   alias Craftcha.HttpResponse
+  alias Craftcha.Session
 
-  defstruct hostname: "", name: "", level: 0
+  defstruct hostname: "", name: "", level: 0, score: 0
 
   def add_player(hostname, name) do
     uuid = Ecto.UUID.generate
@@ -15,18 +16,26 @@ defmodule Craftcha.Player do
     struct(Craftcha.Player, player)
   end
 
+  @doc """
+  This function may be called when a player has finished working on a level.
+  It will check that there are no regressions in the previous levels,
+  and that the new level is working.
+  """
   def try_next_level(uuid) do
     results = check(uuid)
+    IO.inspect results
     points = get_points(results)
-    case has_no_error(results) do
-      true -> next_level(uuid)
-      false -> nil
+    Session.add_points(uuid, points)
+    if has_error(results) do
+      :error
+    else
+      go_next_level(uuid)
+      :ok
     end
-    points
   end
 
-  def next_level(uuid) do
-    Craftcha.Session.next_level(uuid)
+  def go_next_level(uuid) do
+    Session.next_level(uuid)
   end
 
   def check(uuid) do
@@ -39,14 +48,13 @@ defmodule Craftcha.Player do
   The `result_list` must be an Enum of booleans (index is the level result)
   """
   def get_points(results_list) do
-    has_no_error = has_no_error(results_list)
-    case has_no_error do
+    case has_error(results_list) do
       false -> 100
       true -> get_error_points(results_list)
     end
   end
 
-  def has_no_error(results_list), do: Enum.member?(results_list, false)
+  def has_error(results_list), do: Enum.member?(results_list, false)
 
   def get_error_points(results_list) do
     last = Enum.at(results_list, -1)
@@ -64,7 +72,6 @@ defmodule Craftcha.Player do
       false -> -10
     end
   end
-
 
   @doc """
   Do HTTP request and validate the response

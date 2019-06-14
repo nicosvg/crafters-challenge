@@ -8,7 +8,7 @@ defmodule Craftcha.Session do
     Agent.update(
       __MODULE__,
       fn (state) ->
-        Map.put(state, uuid, %{hostname: hostname, name: name, level: 0})
+        Map.put(state, uuid, %{hostname: hostname, name: name, level: 0, score: 0})
       end
     )
   end
@@ -27,7 +27,23 @@ defmodule Craftcha.Session do
   end
 
   def next_level(idServer) do
+    server = get_server(idServer)
+    Agent.update(
+      __MODULE__,
+      fn (state) ->
+        Map.put(state, idServer, %{server | level: server.level + 1})
+      end
+    )
+  end
 
+  def add_points(idServer, points) do
+    server = get_server(idServer)
+    Agent.update(
+      __MODULE__,
+      fn (state) ->
+        Map.put(state, idServer, %{server | score: server.score + points})
+      end
+    )
   end
 
 end
