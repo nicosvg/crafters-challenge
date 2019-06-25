@@ -2,6 +2,7 @@ defmodule Craftcha.Player do
   alias Craftcha.HttpRequest
   alias Craftcha.HttpResponse
   alias Craftcha.Session
+  use PlumberGirl
 
   defstruct hostname: "", name: "", level: 0, score: 0
 
@@ -44,7 +45,8 @@ defmodule Craftcha.Player do
 
   def check(uuid) do
     playerLevel = get_player(uuid).level
-    Enum.map(0..playerLevel, fn level -> check_level(uuid, level) end)
+    hostname = get_player(uuid).hostname
+    Enum.map(0..playerLevel, fn level -> check_level(hostname, level) end)
   end
 
   @doc """
@@ -60,80 +62,99 @@ defmodule Craftcha.Player do
 
   @doc """
   ## Examples
-  iex> Player.has_error([true, false])
+  iex> Player.has_error([:ok, :error])
   true
-  iex> Player.has_error([true])
+  iex> Player.has_error([:ok])
   false
-  iex> Player.has_error([false])
+  iex> Player.has_error([:error])
   true
   """
-  def has_error(results_list), do: Enum.member?(results_list, false)
+  def has_error(results_list), do: Enum.member?(results_list, :error)
 
   def get_error_points(results_list) do
     last = Enum.at(results_list, -1)
     previous_results = Enum.drop results_list, -1
-    get_points_for_old_errors(previous_results) + get_points_for_last_level_error(last)
+    get_points_for_old_errors(previous_results) + get_points_for_last_level(last)
   end
 
   def get_points_for_old_errors(previous_results) do
-    Enum.count(previous_results, fn x -> x == false end) * @old_level_error_points
+    Enum.count(previous_results, fn x -> x == :error end) * @old_level_error_points
   end
 
-  def get_points_for_last_level_error(last_result) do
+  def get_points_for_last_level(last_result) do
     case last_result do
-      true -> 0
-      false -> @new_level_error_points
+      :ok -> 0
+      :error -> @new_level_error_points
     end
   end
 
   @doc """
   Do HTTP request and validate the response
   """
-  def check_request(uuid, request, check_function) do
-    hostname = get_player(uuid).hostname
-    request_with_hostname = %HttpRequest{request | hostname: hostname}
-    {result, response} = HttpRequest.do_http_request(request_with_hostname)
+  def check_request(request, check_function) do
+    {result, response} = HttpRequest.do_http_request(request)
     case result do
       :ok ->
         response
         |> HttpRequest.parseResponse
         |> check_function.()
       :error ->
-        {false, "Could not connect"}
+        {:error, "Could not connect"}
     end
   end
 
   @doc """
   For each level, returns {:ok} if successful, {:error, [errors]} in case of failure
   """
-  def check_level(uuid, level) do
+  def check_level(hostname, level) do
     case level do
-      0 -> check_level_0(uuid)
-      1 -> check_level_1(uuid)
+      0 -> check_level_0(hostname)
+#      1 -> check_level_1(hostname)
     end
   end
 
   @doc """
   The player must return a 200 OK with 'Hello World!' as a response
   """
-  def check_level_0(uuid) do
-    request = %HttpRequest{verb: :get, route: ""}
-    check_request(uuid, request, &validate_level_0/1)
+  def check_level_0(hostname) do
+    hostname
+    |> tee(check_level_0_ok)
+    >>> tee(check_level_0_not_found)
   end
 
-  def validate_level_0(%HttpResponse{status: status, body: body}) do
-    status == 200
-    && body == 'Hello World!'
+  def check_level_0_ok(hostname) do
+    request = %HttpRequest{verb: :get, route: "", hostname: hostname}
+    check_request(request, &validate_level_0/1)
   end
 
-  def check_level_1(uuid) do
-    request = %HttpRequest{verb: :get, route: ""}
-    http_response = check_request(uuid, request, &validate_level_1/1)
+  def check_level_0_not_found(hostname) do
+    request = %HttpRequest{verb: :get, route: '/noroute', hostname: hostname}
+    check_request(request,
+      fn response -> response |> check_status(404) end
+    )
   end
 
-  def validate_level_1(%HttpResponse{status: status, body: body}) do
-    status == 200
-    && body == 'Hello World!'
+  def validate_level_0(%HttpResponse{} = response) do
+    response
+    |> check_status(200)
+    >>> check_body('Hello World!')
+  end
+
+  def check_status(response, status) do
+    if response.status == status do
+      {:ok, response}
+    else
+      {:error, "Status should be " <> Integer.to_string(status)}
+    end
+  end
+
+  def check_body(response, value) do
+    IO.inspect response
+    if(response.body == value) do
+      {:ok, response}
+    else
+      {:error, "Body should be " <> value}
+    end
   end
 
 end

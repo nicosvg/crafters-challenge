@@ -24,6 +24,7 @@
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/plug" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/plug_cowboy" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/plug_crypto" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/plumber_girl" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/poison" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/poolboy" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/postgrex" />
@@ -43,6 +44,7 @@
       <excludeFolder url="file://$MODULE_DIR$/_build/test/lib/plug" />
       <excludeFolder url="file://$MODULE_DIR$/_build/test/lib/plug_cowboy" />
       <excludeFolder url="file://$MODULE_DIR$/_build/test/lib/plug_crypto" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/test/lib/plumber_girl" />
       <excludeFolder url="file://$MODULE_DIR$/_build/test/lib/poison" />
       <excludeFolder url="file://$MODULE_DIR$/_build/test/lib/poolboy" />
       <excludeFolder url="file://$MODULE_DIR$/_build/test/lib/postgrex" />
@@ -89,5 +91,7 @@
     <orderEntry type="library" name="poolboy" level="project" />
     <orderEntry type="library" name="mariaex" level="project" />
     <orderEntry type="library" name="sbroker" level="project" />
+    <orderEntry type="library" name="plumber_girl" level="project" />
+    <orderEntry type="library" name="ex_spec" level="project" />
   </component>
 </module>

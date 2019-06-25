@@ -25,7 +25,7 @@ defmodule Craftcha.PlayerTest do
 
   test "Should get 100 points when all levels are ok" do
     # Arrange
-    results_list = [true, true, true, true]
+    results_list = [:ok, :ok, :ok, :ok]
     # Act
     points = Player.get_points(results_list)
     # Assert
@@ -34,7 +34,7 @@ defmodule Craftcha.PlayerTest do
 
   test "Should get -10 points if the last level is not ok" do
     # Arrange
-    results_list = [true, true, true, false]
+    results_list = [:ok, :ok, :ok, :error]
     # Act
     points = Player.get_points(results_list)
     # Assert
@@ -43,7 +43,7 @@ defmodule Craftcha.PlayerTest do
 
   test "Should get -50 points if one of the previous levels is in error" do
     # Arrange
-    results_list = [true, false, true, true]
+    results_list = [:ok, :error, :ok, :ok]
     # Act
     points = Player.get_points(results_list)
     # Assert
@@ -52,7 +52,7 @@ defmodule Craftcha.PlayerTest do
 
   test "Should get -50 points for each of the previous levels in error" do
     # Arrange
-    results_list = [true, false, false, true]
+    results_list = [:ok, :error, :error, :ok]
     # Act
     points = Player.get_points(results_list)
     # Assert
@@ -61,7 +61,7 @@ defmodule Craftcha.PlayerTest do
 
   test "All levels in error" do
     # Arrange
-    results_list = [false, false, false, false]
+    results_list = [:error, :error, :error, :error]
     # Act
     points = Player.get_points(results_list)
     # Assert
