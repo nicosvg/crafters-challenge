@@ -46,4 +46,9 @@ defmodule Craftcha.Session do
     )
   end
 
+  def get_all_scores() do
+    servers = get_servers()
+
+  end
+
 end

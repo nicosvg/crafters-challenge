@@ -5,6 +5,10 @@ defmodule Craftcha.Player do
 
   defstruct hostname: "", name: "", level: 0, score: 0
 
+  @level_ok_points 100
+  @old_level_error_points -50
+  @new_level_error_points -10
+
   def add_player(hostname, name) do
     uuid = Ecto.UUID.generate
     Craftcha.Session.add_server(uuid, hostname, name)
@@ -49,11 +53,20 @@ defmodule Craftcha.Player do
   """
   def get_points(results_list) do
     case has_error(results_list) do
-      false -> 100
+      false -> @level_ok_points
       true -> get_error_points(results_list)
     end
   end
 
+  @doc """
+  ## Examples
+  iex> Player.has_error([true, false])
+  true
+  iex> Player.has_error([true])
+  false
+  iex> Player.has_error([false])
+  true
+  """
   def has_error(results_list), do: Enum.member?(results_list, false)
 
   def get_error_points(results_list) do
@@ -63,20 +76,20 @@ defmodule Craftcha.Player do
   end
 
   def get_points_for_old_errors(previous_results) do
-    Enum.count(previous_results, fn x -> x == false end) * -50
+    Enum.count(previous_results, fn x -> x == false end) * @old_level_error_points
   end
 
   def get_points_for_last_level_error(last_result) do
     case last_result do
       true -> 0
-      false -> -10
+      false -> @new_level_error_points
     end
   end
 
   @doc """
   Do HTTP request and validate the response
   """
-  def check_level(uuid, request, check_function) do
+  def check_request(uuid, request, check_function) do
     hostname = get_player(uuid).hostname
     request_with_hostname = %HttpRequest{request | hostname: hostname}
     {result, response} = HttpRequest.do_http_request(request_with_hostname)
@@ -90,6 +103,9 @@ defmodule Craftcha.Player do
     end
   end
 
+  @doc """
+  For each level, returns {:ok} if successful, {:error, [errors]} in case of failure
+  """
   def check_level(uuid, level) do
     case level do
       0 -> check_level_0(uuid)
@@ -102,7 +118,7 @@ defmodule Craftcha.Player do
   """
   def check_level_0(uuid) do
     request = %HttpRequest{verb: :get, route: ""}
-    check_level(uuid, request, &validate_level_0/1)
+    check_request(uuid, request, &validate_level_0/1)
   end
 
   def validate_level_0(%HttpResponse{status: status, body: body}) do
@@ -112,7 +128,7 @@ defmodule Craftcha.Player do
 
   def check_level_1(uuid) do
     request = %HttpRequest{verb: :get, route: ""}
-    check_level(uuid, request, &validate_level_1/1)
+    http_response = check_request(uuid, request, &validate_level_1/1)
   end
 
   def validate_level_1(%HttpResponse{status: status, body: body}) do

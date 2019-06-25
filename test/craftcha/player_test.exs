@@ -2,6 +2,8 @@ defmodule Craftcha.PlayerTest do
   use ExUnit.Case
   alias Craftcha.Player
 
+  doctest Player
+
   test "Add player" do
     # Act
     {:ok, uuid} = Player.add_player("localhost", "Nico")
