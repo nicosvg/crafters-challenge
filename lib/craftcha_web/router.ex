@@ -21,7 +21,7 @@ defmodule CraftchaWeb.Router do
     get "/player/new", PlayerController, :new
     post "/player", PlayerController, :create
     get "/player/:id", PlayerController, :show
-#    post "/player/:id/check", PlayerController, :check
+    post "/player/:id/check", PlayerController, :check
   end
 
   # Other scopes may use custom stacks.

@@ -1,0 +1,22 @@
+<h1>Player: <%= @player.name %></h1>
+
+<ul>
+
+  <li>
+    <strong>Hostname:</strong>
+    <%= @player.hostname %>
+  </li>
+
+  <li>
+    <strong>Level:</strong>
+    <%= @player.level %>
+  </li>
+
+  <li>
+    <strong>Score:</strong>
+    <%= @player.score %>
+  </li>
+
+</ul>
+
+<span><%= link "Back", to: player_path(@conn, :index) %></span>

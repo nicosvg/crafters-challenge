@@ -7,8 +7,9 @@ defmodule Craftcha.HttpRequest do
   Do an Http request
   """
   def do_http_request(http_request) do
-    IO.inspect http_request
-    :httpc.request(http_request.verb, {http_request.hostname ++ http_request.route, []}, [], [])
+    IO.inspect(http_request, label: "do http request")
+    url = to_charlist(http_request.hostname) ++ to_charlist(http_request.route)
+    :httpc.request(http_request.verb, {url, []}, [], [])
   end
 
   @doc """

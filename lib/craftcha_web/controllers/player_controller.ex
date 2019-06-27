@@ -7,7 +7,7 @@ defmodule CraftchaWeb.PlayerController do
   end
 
   def create(conn, _params) do
-    %{"player"=> player} = conn.params
+    %{"player" => player} = conn.params
     %{"hostname" => hostname, "name" => name} = player
     IO.inspect hostname
     IO.inspect name
@@ -21,5 +21,15 @@ defmodule CraftchaWeb.PlayerController do
     render(conn, "index.html", players: players)
   end
 
+  def check(conn, %{"id" => id}) do
+    result= Player.check(id)
+    IO.inspect(result, label: "result")
+    redirect(conn, to: player_path(conn, :show, id))
+  end
+
+  def show(conn, %{"id" => id}) do
+    player = Player.get_player(id)
+    render(conn, "show.html", player: player)
+  end
 
 end
