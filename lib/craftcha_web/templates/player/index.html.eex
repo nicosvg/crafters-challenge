@@ -1,0 +1,26 @@
+<h1>Current players</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Hostname</th>
+      <th>Level</th>
+      <th>Score</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for player<- @players do %>
+    <tr>
+      <td><%= player.name %> </td>
+      <td><%= player.hostname %> </td>
+      <td><%= player.level %> </td>
+      <td><%= player.score %> </td>
+      <td></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Player", to: player_path(@conn, :new) %></span>

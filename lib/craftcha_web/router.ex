@@ -17,6 +17,11 @@ defmodule CraftchaWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/player", PlayerController, :index
+    get "/player/new", PlayerController, :new
+    post "/player", PlayerController, :create
+    get "/player/:id", PlayerController, :show
+#    post "/player/:id/check", PlayerController, :check
   end
 
   # Other scopes may use custom stacks.

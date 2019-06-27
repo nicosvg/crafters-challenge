@@ -3,12 +3,23 @@ defmodule Craftcha.Player do
   alias Craftcha.HttpResponse
   alias Craftcha.Session
   use PlumberGirl
+  use Ecto.Schema
+  import Ecto.Changeset
+
+#  schema "player" do
+#    field :name
+#    field :hostname
+#  end
 
   defstruct hostname: "", name: "", level: 0, score: 0
 
   @level_ok_points 100
   @old_level_error_points -50
   @new_level_error_points -10
+
+#  def changeset(player, params \\ %{}) do
+#    cast(player, params, [:hostname, :name])
+#  end
 
   def add_player(hostname, name) do
     uuid = Ecto.UUID.generate
@@ -19,6 +30,11 @@ defmodule Craftcha.Player do
   def get_player(uuid) do
     player = Craftcha.Session.get_server(uuid)
     struct(Craftcha.Player, player)
+  end
+
+  def list_players() do
+    players_map = Craftcha.Session.get_all_scores()
+    |> Enum.map(fn{k,v} -> Map.put(v, :id, k) end)
   end
 
   @doc """
@@ -119,7 +135,7 @@ defmodule Craftcha.Player do
   def check_level_0(hostname) do
     hostname
     |> tee(check_level_0_ok)
-    >>> tee(check_level_0_not_found)
+    >>> check_level_0_not_found
   end
 
   def check_level_0_ok(hostname) do

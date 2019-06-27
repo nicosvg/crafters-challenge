@@ -1,0 +1,10 @@
+<div class="jumbotron">
+  <h3>Add a new player</h3>
+</div>
+<div>
+<%= form_for @conn, player_path(@conn, :create), [as: :player], fn f -> %>
+  Name: <%= text_input f, :name %>
+  Hostname: <%= text_input f, :hostname %>
+  <%= submit "Create" %>
+<% end %>
+</div>
