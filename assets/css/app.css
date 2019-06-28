@@ -20,4 +20,26 @@ main {
 }
 
 .result-line {
+	display: flex;
+}
+
+.result-line-level {
+	margin-right: 32px;
+	width: 5rem;
+}
+
+.result-line-status {
+	width: 20%;
+}
+
+.error{
+	color: #cd1c1a;
+}
+
+.ok{
+	color: #1db91f;
+}
+
+.result-line-message {
+	/*width: 60%;*/
 }

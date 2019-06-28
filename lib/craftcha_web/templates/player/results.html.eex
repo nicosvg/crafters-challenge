@@ -1,8 +1,14 @@
 <div class="check-result">
 <h3>Last check result</h3>
-<%= for r <- @result do %>
+<%= for {r, index}  <- Enum.with_index(@result) do %>
 <div class="result-line">
-Result: <%= elem(r, 0) %> Message: <%= elem(r, 1) %>
+    <div class="result-line-level">Level <%= index %></div>
+    <div class="result-line-status <%= elem(r, 0) %>">
+    <%= elem(r, 0) %>
+    </div>
+    <div class="result-line-message">
+    <%= elem(r, 1) %>
+    </div>
 </div>
 <% end %>
 </div>

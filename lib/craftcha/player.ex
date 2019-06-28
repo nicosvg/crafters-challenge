@@ -41,6 +41,8 @@ defmodule Craftcha.Player do
   This function may be called when a player has finished working on a level.
   It will check that there are no regressions in the previous levels,
   and that the new level is working.
+
+  Deprecated
   """
   def try_next_level(uuid) do
     results = check(uuid)
@@ -64,6 +66,11 @@ defmodule Craftcha.Player do
     hostname = get_player(uuid).hostname
     result = Enum.map(0..playerLevel, fn level -> check_level(hostname, level) end)
     Session.set_last_result(uuid, result)
+
+    points = result
+             |> get_result_list
+             |> get_points
+    Session.add_points(uuid, points)
 
     has_error = result
                 |> get_result_list
@@ -182,13 +189,14 @@ defmodule Craftcha.Player do
     if(response.body == value) do
       {:ok, "OK"}
     else
-      {:error, "Body should be " <> value}
+      error_message = "Body should be " <> to_string(value) <> ", received: " <> to_string(response.body)
+      {:error, error_message}
     end
   end
 
   def check_level_1(hostname) do
     request = %HttpRequest{verb: :get, route: '/ok', hostname: hostname}
-    validation = &check_body(&1, "ok")
+    validation = &check_body(&1, 'ok')
     check_request(request, validation)
   end
 
