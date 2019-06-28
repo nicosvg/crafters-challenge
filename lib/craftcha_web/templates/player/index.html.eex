@@ -17,7 +17,7 @@
       <td><%= player.hostname %> </td>
       <td><%= player.level %> </td>
       <td><%= player.score %> </td>
-      <td><%= button("Check", to: player_path(@conn, :check, player.id), class: "btn") %></td>
+      <td><%= link "See", to: player_path(@conn, :show, player.id) %></td>
     </tr>
 <% end %>
   </tbody>

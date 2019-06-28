@@ -17,6 +17,14 @@
     <%= @player.score %>
   </li>
 
+
+
 </ul>
+
+<%= if @player.last_result != nil do %>
+<%= render "results.html", result: @player.last_result %>
+<% end %>
+
+<%= button("Check", to: player_path(@conn, :check, @id), class: "btn") %>
 
 <span><%= link "Back", to: player_path(@conn, :index) %></span>

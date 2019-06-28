@@ -1,1 +1,23 @@
 /* This file is for your main application css. */
+
+body {
+	background: lightgray;
+	/*border: solid 1px red;*/
+	display: flex;
+	flex: 1;
+}
+
+main {
+	/*border: solid 1px #4cae4c;*/
+}
+
+.check-result {
+	border: 1px solid #1b6d85;
+	margin: 8px;
+	padding: 8px;
+	box-shadow: 5px 5px 5px #1b6d85;
+	border-radius: 5px;
+}
+
+.result-line {
+}

@@ -20,12 +20,9 @@ defmodule CraftchaWeb.Router do
     get "/player", PlayerController, :index
     get "/player/new", PlayerController, :new
     post "/player", PlayerController, :create
+    get "/player/me", PlayerController, :me
     get "/player/:id", PlayerController, :show
     post "/player/:id/check", PlayerController, :check
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", CraftchaWeb do
-  #   pipe_through :api
-  # end
 end

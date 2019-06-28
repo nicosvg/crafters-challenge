@@ -6,20 +6,20 @@ defmodule Craftcha.Player do
   use Ecto.Schema
   import Ecto.Changeset
 
-#  schema "player" do
-#    field :name
-#    field :hostname
-#  end
+  #  schema "player" do
+  #    field :name
+  #    field :hostname
+  #  end
 
-  defstruct hostname: "", name: "", level: 0, score: 0
+  defstruct hostname: "", name: "", level: 0, score: 0, last_result: nil
 
   @level_ok_points 100
   @old_level_error_points -50
   @new_level_error_points -10
 
-#  def changeset(player, params \\ %{}) do
-#    cast(player, params, [:hostname, :name])
-#  end
+  #  def changeset(player, params \\ %{}) do
+  #    cast(player, params, [:hostname, :name])
+  #  end
 
   def add_player(hostname, name) do
     uuid = Ecto.UUID.generate
@@ -34,7 +34,7 @@ defmodule Craftcha.Player do
 
   def list_players() do
     players_map = Craftcha.Session.get_all_scores()
-    |> Enum.map(fn{k,v} -> Map.put(v, :id, k) end)
+                  |> Enum.map(fn {k, v} -> Map.put(v, :id, k) end)
   end
 
   @doc """
@@ -62,12 +62,24 @@ defmodule Craftcha.Player do
   def check(uuid) do
     playerLevel = get_player(uuid).level
     hostname = get_player(uuid).hostname
-    Enum.map(0..playerLevel, fn level -> check_level(hostname, level) end)
+    result = Enum.map(0..playerLevel, fn level -> check_level(hostname, level) end)
+    Session.set_last_result(uuid, result)
+
+    has_error = result
+                |> get_result_list
+                |> has_error
+    case has_error do
+      true -> nil
+      false -> go_next_level(uuid)
+    end
+
+    IO.inspect(result, label: "result")
+    result
   end
 
   @doc """
   Calculates the points for this try.
-  The `result_list` must be an Enum of booleans (index is the level result)
+  The `result_list` must be an Enum of :ok/:error (index is the level result)
   """
   def get_points(results_list) do
     case has_error(results_list) do
@@ -86,6 +98,8 @@ defmodule Craftcha.Player do
   true
   """
   def has_error(results_list), do: Enum.member?(results_list, :error)
+
+  def get_result_list(results), do: Enum.map(results, fn {a, _b} -> a  end)
 
   def get_error_points(results_list) do
     last = Enum.at(results_list, -1)
@@ -125,7 +139,7 @@ defmodule Craftcha.Player do
   def check_level(hostname, level) do
     case level do
       0 -> check_level_0(hostname)
-#      1 -> check_level_1(hostname)
+      1 -> check_level_1(hostname)
     end
   end
 
@@ -145,20 +159,19 @@ defmodule Craftcha.Player do
 
   def check_level_0_not_found(hostname) do
     request = %HttpRequest{verb: :get, route: '/noroute', hostname: hostname}
-    check_request(request,
-      fn response -> response |> check_status(404) end
-    )
+    validation = &check_status(&1, 404)
+    check_request(request, validation)
   end
 
   def validate_level_0(%HttpResponse{} = response) do
     response
-    |> check_status(200)
+    |> tee(check_status(200))
     >>> check_body('Hello World!')
   end
 
   def check_status(response, status) do
     if response.status == status do
-      {:ok, response}
+      {:ok, "OK"}
     else
       {:error, "Status should be " <> Integer.to_string(status)}
     end
@@ -167,10 +180,16 @@ defmodule Craftcha.Player do
   def check_body(response, value) do
     IO.inspect response
     if(response.body == value) do
-      {:ok, response}
+      {:ok, "OK"}
     else
       {:error, "Body should be " <> value}
     end
+  end
+
+  def check_level_1(hostname) do
+    request = %HttpRequest{verb: :get, route: '/ok', hostname: hostname}
+    validation = &check_body(&1, "ok")
+    check_request(request, validation)
   end
 
 end

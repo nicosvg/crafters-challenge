@@ -1,0 +1,8 @@
+<div class="check-result">
+<h3>Last check result</h3>
+<%= for r <- @result do %>
+<div class="result-line">
+Result: <%= elem(r, 0) %> Message: <%= elem(r, 1) %>
+</div>
+<% end %>
+</div>
