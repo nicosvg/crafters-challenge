@@ -1,0 +1,15 @@
+<div class="block specs">
+<h3>User stories</h3>
+
+<%= for level <- 0..@current_level do %>
+<div class="level-spec">
+<b>
+    Level <%= level %>
+</b>
+<div class="level-spec-content">
+<%= render "level-" <> to_string(level) <> ".html" %>
+</div>
+</div>
+<% end %>
+
+</div>

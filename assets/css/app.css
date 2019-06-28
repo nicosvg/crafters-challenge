@@ -12,11 +12,14 @@ main {
 }
 
 .check-result {
+}
+
+.block {
 	border: 1px solid #1b6d85;
-	margin: 8px;
-	padding: 8px;
 	box-shadow: 5px 5px 5px #1b6d85;
 	border-radius: 5px;
+	padding: 8px;
+	margin: 8px 0px;
 }
 
 .result-line {

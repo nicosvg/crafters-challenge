@@ -1,0 +1,2 @@
+Your sever must return OK 200 with the message "Hello World!" when called.
+Any other route must return a 404 HTTP error.

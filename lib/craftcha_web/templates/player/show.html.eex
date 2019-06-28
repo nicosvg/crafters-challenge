@@ -1,4 +1,4 @@
-<h1>Player: <%= @player.name %></h1>
+<h1><%= @player.name %></h1>
 
 <ul>
 
@@ -17,9 +17,9 @@
     <%= @player.score %>
   </li>
 
-
-
 </ul>
+
+<%= render "specs.html", current_level: @player.level %>
 
 <%= if @player.last_result != nil do %>
 <%= render "results.html", result: @player.last_result %>
