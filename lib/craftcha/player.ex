@@ -6,11 +6,6 @@ defmodule Craftcha.Player do
   use Ecto.Schema
   import Ecto.Changeset
 
-  #  schema "player" do
-  #    field :name
-  #    field :hostname
-  #  end
-
   defstruct hostname: "",
             name: "",
             level: 0,
@@ -18,14 +13,12 @@ defmodule Craftcha.Player do
             last_result: nil,
             finished: false
 
+  ### GAME SPECIFIC VALUES
+
   @level_ok_points 100
   @old_level_error_points -50
   @new_level_error_points -10
   @max_level 2
-
-  #  def changeset(player, params \\ %{}) do
-  #    cast(player, params, [:hostname, :name])
-  #  end
 
   def add_player(hostname, name) do
     uuid = Ecto.UUID.generate
@@ -138,25 +131,14 @@ defmodule Craftcha.Player do
   @doc """
   Do HTTP request and validate the response
   """
-  def check_request(request, check_function) do
+  def check_request(request, check_functions) do
     {result, response} = HttpRequest.do_http_request(request)
     case result do
       :ok ->
-        response
-        |> HttpRequest.parseResponse
-        |> check_function.()
+        parsedResponse = HttpRequest.parseResponse(response)
+        Enum.map(check_functions, fn check -> check.(parsedResponse) end)
       :error ->
-        {:error, "Could not connect"}
-    end
-  end
-
-  @doc """
-  For each level, returns {:ok} if successful, {:error, [errors]} in case of failure
-  """
-  def check_level(hostname, level) do
-    case level do
-      0 -> check_level_0(hostname)
-      1 -> check_level_1(hostname)
+        [{:error, "Could not connect"}]
     end
   end
 
@@ -166,35 +148,24 @@ defmodule Craftcha.Player do
 
   def get_max_level(), do: @max_level
 
-  @doc """
-  The player must return a 200 OK with 'Hello World!' as a response
-  """
-  def check_level_0(hostname) do
-    hostname
-    |> tee(check_level_0_ok)
-    >>> check_level_0_not_found
+  def test_level(hostname, tests) do
+    tests
+    |> Enum.flat_map(fn test -> test.(hostname) end)
+    |> Enum.reduce_while({:ok, ""}, &reduce_tests/2)
   end
 
-  def check_level_0_ok(hostname) do
-    request = %HttpRequest{verb: :get, route: "", hostname: hostname}
-    check_request(request, &validate_level_0/1)
+  def reduce_tests(result, acc) do
+    case result do
+      {:ok, res} -> {:cont, {:ok, "OK"}}
+      {:error, message} -> {:halt, {:error, message}}
+    end
   end
 
-  def check_level_0_not_found(hostname) do
-    request = %HttpRequest{verb: :get, route: '/noroute', hostname: hostname}
-    validation = &check_status(&1, 404)
-    check_request(request, validation)
-  end
-
-  def validate_level_0(%HttpResponse{} = response) do
-    response
-    |> tee(check_status(200))
-    >>> check_body('Hello World!')
-  end
+  ### VALIDATION HELPERS
 
   def check_status(response, status) do
     if response.status == status do
-      {:ok, "OK"}
+      {:ok, "Status is " <> Integer.to_string(status)}
     else
       {:error, "Status should be " <> Integer.to_string(status)}
     end
@@ -210,10 +181,50 @@ defmodule Craftcha.Player do
     end
   end
 
-  def check_level_1(hostname) do
-    request = %HttpRequest{verb: :get, route: '/ok', hostname: hostname}
-    validation = &check_body(&1, 'ok')
+  ### GAME SPECIFIC ###
+
+  @doc """
+  For each level, returns {:ok} if successful, {:error, [errors]} in case of failure
+  """
+  def check_level(hostname, level) do
+    case level do
+      0 -> check_level_0(hostname)
+      1 -> check_level_1(hostname)
+    end
+  end
+
+  @doc """
+  The player must return a 200 OK with 'Hello World!' as a response
+  """
+  def check_level_0(hostname) do
+    tests = [&check_level_0_ok/1, &check_level_0_not_found/1]
+    test_level(hostname, tests)
+  end
+
+  def check_level_0_ok(hostname) do
+    request = %HttpRequest{verb: :get, route: "", hostname: hostname}
+    checks = [
+      &check_status(&1, 200),
+      &check_body(&1, 'Hello World!')
+    ]
+    check_request(request, checks)
+  end
+
+  def check_level_0_not_found(hostname) do
+    request = %HttpRequest{verb: :get, route: '/noroute', hostname: hostname}
+    validation = [&check_status(&1, 404)]
     check_request(request, validation)
+  end
+
+  def check_level_1(hostname) do
+    tests = [&check_level_1_ok/1]
+    test_level(hostname, tests)
+  end
+
+  def check_level_1_ok(hostname) do
+    request = %HttpRequest{verb: :get, route: '/ok', hostname: hostname}
+    validations = [&check_body(&1, 'ok')]
+    check_request(request, validations)
   end
 
 end
