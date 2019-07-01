@@ -1,0 +1,11 @@
+<div class="block">
+    <div>
+    Congratulations <%= @player.name %>, you finished the project!
+    </div>
+    <div>
+    Your score: <%= @player.score %>
+    </div>
+    <div>
+    <span><%= link "Back", to: player_path(@conn, :index) %></span>
+    </div>
+</div>

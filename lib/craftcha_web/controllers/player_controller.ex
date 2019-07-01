@@ -25,8 +25,11 @@ defmodule CraftchaWeb.PlayerController do
 
   def show(conn, %{"id" => id}) do
     player = Player.get_player(id)
-    IO.inspect(player.last_result, label: "last result")
-    render(conn, "show.html", player: player, id: id)
+    if (Player.has_finished(id)) do
+      render(conn, "end.html", player: player, id: id)
+    else
+      render(conn, "show.html", player: player, id: id)
+    end
   end
 
   def me(%{remote_ip: ip}, params) do
