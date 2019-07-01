@@ -11,11 +11,17 @@ defmodule Craftcha.Player do
   #    field :hostname
   #  end
 
-  defstruct hostname: "", name: "", level: 0, score: 0, last_result: nil
+  defstruct hostname: "",
+            name: "",
+            level: 0,
+            score: 0,
+            last_result: nil,
+            finished: false
 
   @level_ok_points 100
   @old_level_error_points -50
   @new_level_error_points -10
+  @max_level 2
 
   #  def changeset(player, params \\ %{}) do
   #    cast(player, params, [:hostname, :name])
@@ -153,6 +159,12 @@ defmodule Craftcha.Player do
       1 -> check_level_1(hostname)
     end
   end
+
+  def has_finished(uuid) do
+    get_player(uuid).level == @max_level
+  end
+
+  def get_max_level(), do: @max_level
 
   @doc """
   The player must return a 200 OK with 'Hello World!' as a response
