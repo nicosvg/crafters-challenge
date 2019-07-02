@@ -8,8 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46634341-4e71-40db-8cc1-2cd563e061f2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/craftcha/scenario.ex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/craftcha/validation.ex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/craftcha/player.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/craftcha/player.ex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/craftcha_web/templates/player/level-1.html.eex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/craftcha_web/templates/player/level-1.html.eex" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/_build/dev/lib/connection/" />
@@ -73,11 +76,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/lib/craftcha/player.ex">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="298">
-                  <caret line="159" column="24" selection-start-line="159" selection-start-column="24" selection-end-line="159" selection-end-column="24" />
+                  <caret line="157" column="24" selection-start-line="157" selection-start-column="24" selection-end-line="157" selection-end-column="24" />
                 </state>
               </provider>
             </entry>
@@ -94,8 +97,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/lib/craftcha_web/templates/player/level-1.html.eex">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="18">
-                  <caret line="1" selection-start-line="1" selection-end-line="1" />
+                <state relative-caret-position="108">
+                  <caret line="6" selection-start-line="6" selection-end-line="6" />
                 </state>
               </provider>
             </entry>
@@ -118,6 +121,24 @@
               </provider>
             </entry>
           </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/lib/craftcha/scenario.ex">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="54">
+                  <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/lib/craftcha/validation.ex">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="18">
+                  <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+                </state>
+              </provider>
+            </entry>
+          </file>
         </leaf>
       </split-first>
       <split-second>
@@ -125,8 +146,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/lib/craftcha_web/controllers/player_controller.ex">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="293">
-                  <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+                <state relative-caret-position="126">
+                  <caret line="7" selection-start-line="7" selection-end-line="7" />
                 </state>
               </provider>
             </entry>
@@ -143,8 +164,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/lib/craftcha_web/templates/player/show.html.eex">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="378">
-                  <caret line="21" column="19" selection-start-line="21" selection-end-line="22" />
+                <state relative-caret-position="162">
+                  <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
                 </state>
               </provider>
             </entry>
@@ -179,8 +200,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/lib/craftcha/player.ex">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="36">
-                  <caret line="193" column="30" selection-start-line="193" selection-start-column="30" selection-end-line="193" selection-end-column="30" />
+                <state relative-caret-position="732">
+                  <caret line="162" selection-start-line="162" selection-end-line="162" />
                 </state>
               </provider>
             </entry>
@@ -237,13 +258,15 @@
         <option value="$PROJECT_DIR$/lib/craftcha_web/templates/player/show.html.eex" />
         <option value="$PROJECT_DIR$/lib/craftcha_web/views/specs_view.ex" />
         <option value="$PROJECT_DIR$/assets/css/app.css" />
-        <option value="$PROJECT_DIR$/lib/craftcha_web/templates/player/level-1.html.eex" />
         <option value="$PROJECT_DIR$/lib/craftcha_web/templates/player/specs.html.eex" />
         <option value="$PROJECT_DIR$/lib/craftcha_web/templates/layout/app.html.eex" />
         <option value="$PROJECT_DIR$/lib/craftcha_web/templates/player/level-0.html.eex" />
         <option value="$PROJECT_DIR$/lib/craftcha_web/templates/player/level-2.html.eex" />
         <option value="$PROJECT_DIR$/lib/craftcha_web/controllers/player_controller.ex" />
         <option value="$PROJECT_DIR$/lib/craftcha_web/templates/player/end.html.eex" />
+        <option value="$PROJECT_DIR$/lib/craftcha_web/templates/player/level-1.html.eex" />
+        <option value="$PROJECT_DIR$/lib/craftcha/validation.ex" />
+        <option value="$PROJECT_DIR$/lib/craftcha/scenario.ex" />
         <option value="$PROJECT_DIR$/lib/craftcha/player.ex" />
       </list>
     </option>
@@ -449,7 +472,7 @@
       <workItem from="1561400124581" duration="15577000" />
       <workItem from="1561555970817" duration="600000" />
       <workItem from="1561621068978" duration="5989000" />
-      <workItem from="1561636721152" duration="29361000" />
+      <workItem from="1561636721152" duration="30565000" />
     </task>
     <servers />
   </component>
@@ -486,13 +509,14 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112202000" />
+    <option name="totallyTimeSpent" value="113406000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4984756" visible="true" weight="0.16221985" />
-      <window_info id="Structure" order="1" sideWeight="0.5015244" side_tool="true" visible="true" weight="0.16221985" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49945474" visible="true" weight="0.16221985" />
+      <window_info id="Structure" order="1" sideWeight="0.50054526" side_tool="true" weight="0.16221985" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -503,9 +527,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3293348" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.28462377" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.28462377" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -545,6 +569,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/structural.rnc">
@@ -692,13 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/craftcha_web/templates/player/results.html.eex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="9" selection-start-line="2" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/craftcha_web/views/specs_view.ex">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
@@ -713,45 +740,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/craftcha_web/templates/player/show.html.eex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="19" selection-start-line="21" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/craftcha_web/templates/player/level-1.html.eex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/craftcha_web/templates/player/specs.html.eex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/craftcha_web/templates/player/level-0.html.eex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/craftcha/session.ex">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-175">
           <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/craftcha_web/controllers/player_controller.ex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -783,10 +775,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/craftcha_web/templates/player/specs.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/craftcha_web/templates/player/level-0.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/craftcha_web/templates/player/show.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/craftcha_web/controllers/player_controller.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/craftcha_web/templates/player/level-1.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/craftcha_web/templates/player/results.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="9" selection-start-line="2" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/craftcha/validation.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/craftcha/scenario.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/craftcha/player.ex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="159" column="24" selection-start-line="159" selection-start-column="24" selection-end-line="159" selection-end-column="24" />
+        <state relative-caret-position="732">
+          <caret line="162" selection-start-line="162" selection-end-line="162" />
         </state>
       </provider>
     </entry>

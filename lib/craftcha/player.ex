@@ -1,6 +1,7 @@
 defmodule Craftcha.Player do
   alias Craftcha.HttpRequest
   alias Craftcha.Session
+  alias Craftcha.Scenario
   use PlumberGirl
 
   defstruct hostname: "",
@@ -10,12 +11,9 @@ defmodule Craftcha.Player do
             last_result: nil,
             finished: false
 
-  ### GAME SPECIFIC VALUES
-
   @level_ok_points 100
   @old_level_error_points -50
   @new_level_error_points -10
-  @max_level 2
 
   def add_player(hostname, name) do
     uuid = Ecto.UUID.generate
@@ -140,10 +138,10 @@ defmodule Craftcha.Player do
   end
 
   def has_finished(uuid) do
-    get_player(uuid).level == @max_level
+    get_player(uuid).level == get_max_level()
   end
 
-  def get_max_level(), do: @max_level
+  def get_max_level(), do: Scenario.get_max_level()
 
   def perform_test(hostname, {req, checks}) do
     complete_request = %{req | hostname: hostname}
@@ -158,69 +156,9 @@ defmodule Craftcha.Player do
   end
 
   def check_level(hostname, level) do
-    get_level_tests(level)
+    Scenario.get_level_tests(level)
     |> Enum.flat_map(&perform_test(hostname, &1))
     |> Enum.reduce_while({:ok, ""}, &reduce_tests/2)
-  end
-
-  ### VALIDATION HELPERS
-
-  def check_status(response, status) do
-    if response.status == status do
-      {:ok, "Status is " <> Integer.to_string(status)}
-    else
-      {:error, "Status should be " <> Integer.to_string(status)}
-    end
-  end
-
-  def check_body(response, value) do
-    IO.inspect response
-    if(response.body == value) do
-      {:ok, "OK"}
-    else
-      error_message = "Body should be " <> to_string(value) <> ", received: " <> to_string(response.body)
-      {:error, error_message}
-    end
-  end
-
-  ### GAME SPECIFIC ###
-
-  @doc """
-  For each level, returns {:ok} if successful, {:error, [errors]} in case of failure
-  """
-  def get_level_tests(level) do
-    case level do
-      0 -> get_tests_level_0()
-      1 -> get_tests_level_1()
-    end
-  end
-
-  @doc """
-  The player must return a 200 OK with 'Hello World!' as a response
-  """
-  def get_tests_level_0 do
-    request = %HttpRequest{verb: :get, route: ""}
-    checks = [
-      &check_status(&1, 200),
-      &check_body(&1, 'Hello World!')
-    ]
-    first_test = {request, checks}
-
-    request = %HttpRequest{verb: :get, route: '/noroute'}
-    validations = [&check_status(&1, 404)]
-    second_test = {request, validations}
-
-    [first_test, second_test]
-  end
-
-  def get_tests_level_1 do
-    [check_level_1_ok()]
-  end
-
-  def check_level_1_ok do
-    request = %HttpRequest{verb: :get, route: '/ok'}
-    validations = [&check_body(&1, 'ok')]
-    {request, validations}
   end
 
 end
