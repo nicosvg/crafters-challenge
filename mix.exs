@@ -42,7 +42,8 @@ defmodule Craftcha.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:plug_cowboy, "~> 1.0"},
-      {:plumber_girl, "~> 0.9.5"}
+      {:plumber_girl, "~> 0.9.5"},
+      { :earmark, "~> 1.3.2" }
     ]
   end
 

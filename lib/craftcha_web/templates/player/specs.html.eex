@@ -1,13 +1,14 @@
 <div class="block specs">
 <h3>User stories</h3>
 
-<%= for level <- 0..@current_level do %>
+<%= for {spec, level}  <- Enum.with_index(@specs) do %>
+
 <div class="level-spec">
 <b>
     Level <%= level %>
 </b>
 <div class="level-spec-content">
-<%= render "level-" <> to_string(level) <> ".html" %>
+<%= {:safe, Earmark.as_html!(spec)} %>
 </div>
 </div>
 <% end %>

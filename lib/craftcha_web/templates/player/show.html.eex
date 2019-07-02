@@ -19,7 +19,7 @@
 
 </ul>
 
-<%= render "specs.html", current_level: @player.level %>
+<%= render "specs.html", specs: @specs %>
 
 <%= if @player.last_result != nil do %>
 <%= render "results.html", result: @player.last_result %>
