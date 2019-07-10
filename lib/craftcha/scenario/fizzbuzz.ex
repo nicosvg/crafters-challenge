@@ -5,7 +5,7 @@ defmodule Craftcha.Scenario.FizzBuzz do
   alias Craftcha.Validation
   alias Craftcha.HttpRequest
 
-  @max_level 4
+  @max_level 3
 
   def get_max_level() do
     @max_level
@@ -24,13 +24,13 @@ defmodule Craftcha.Scenario.FizzBuzz do
   end
 
   @doc """
-  The player must return a 200 OK with 'Hello World!' as a response
+  The player must return a 200 OK with 'Hello Bob!' as a response
   """
   def get_tests_level_0 do
-    request = %HttpRequest{verb: :get, route: ""}
+    request = %HttpRequest{verb: :get, route: "", params: [{'name', 'Bob'}]}
     checks = [
       &Validation.check_status(&1, 200),
-      &Validation.check_body(&1, 'Hello World!')
+      &Validation.check_body(&1, 'Hello Bob')
     ]
     first_test = {request, checks}
 
@@ -113,7 +113,6 @@ defmodule Craftcha.Scenario.FizzBuzz do
     {request, validations}
   end
 
-
   def get_instructions(level) do
     case level do
       0 -> "
@@ -123,7 +122,8 @@ We will implement the game of FizzBuzz step by step
 
 Please start your server on the port you defined when registering.
 Your server should:
-- Answer 200 OK with the body *Hello World!* when the route _/_ is called with the method GET
+- Answer 200 OK with the body *Hello Name* when the route _/_ is called with the method GET, the name to add
+to the message will be passed in the query parameter _name_
 - Answer 404 ERROR when any other route is called
 "
       1 -> "
