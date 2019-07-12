@@ -4,7 +4,7 @@ defmodule Craftcha.Session do
     Agent.start_link(fn -> %{} end, name: __MODULE__)
   end
 
-  def add_server(uuid, hostname, name) do
+  def add_server(uuid, hostname, port, name) do
     Agent.update(
       __MODULE__,
       fn (state) ->
@@ -13,6 +13,7 @@ defmodule Craftcha.Session do
           uuid,
           %{
             hostname: hostname,
+            port: port,
             name: name,
             level: 0,
             score: 0,

@@ -1,14 +1,14 @@
 defmodule Craftcha.HttpRequest do
   alias Craftcha.HttpResponse
 
-  defstruct verb: :get, hostname: 'localhost', route: '/', params: []
+  defstruct verb: :get, hostname: 'localhost', port: '3000', route: '/', params: []
 
   @doc """
   Do an Http request
   """
   def do_http_request(http_request) do
     IO.inspect(http_request, label: "do http request")
-    url = to_charlist(http_request.hostname) ++ to_charlist(http_request.route)
+    url = 'http://' ++ to_charlist(http_request.hostname) ++ ':' ++  to_charlist(http_request.port) ++ to_charlist(http_request.route)
     url_with_params = if length(http_request.params) > 0 do
        Enum.reduce(http_request.params, url ++ '?', fn {key, value}, acc -> acc ++ key ++ '=' ++ value end)
     else

@@ -6,6 +6,7 @@ defmodule Craftcha.Player do
 
   defstruct hostname: "",
             name: "",
+            port: "",
             level: 0,
             score: 0,
             last_result: nil,
@@ -15,9 +16,9 @@ defmodule Craftcha.Player do
   @old_level_error_points -50
   @new_level_error_points -10
 
-  def add_player(hostname, name) do
+  def add_player(hostname, name, port) do
     uuid = Ecto.UUID.generate
-    Craftcha.Session.add_server(uuid, hostname, name)
+    Craftcha.Session.add_server(uuid, hostname, port, name)
     {:ok, uuid}
   end
 

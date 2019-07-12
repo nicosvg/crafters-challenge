@@ -1,30 +1,27 @@
-<h1><%= @player.name %></h1>
+<div class="player-title">
+  <div class="player-title-name"><%= @player.name%> (level <%= @player.level %>)</div>
+  <div class="player-title-score"><%= @player.score %> pts</div>
+</div>
+http://<%=@player.hostname%>:<%=@player.port%>
 
-<ul>
+<div class="level-spec-content">
+<%= {:safe, Earmark.as_html!(Enum.at(@specs, -1))} %>
+</div>
 
-  <li>
-    <strong>Hostname:</strong>
-    <%= @player.hostname %>
-  </li>
-
-  <li>
-    <strong>Level:</strong>
-    <%= @player.level %>
-  </li>
-
-  <li>
-    <strong>Score:</strong>
-    <%= @player.score %>
-  </li>
-
-</ul>
-
-<%= render "specs.html", specs: @specs %>
+<div class="centered">
+  <div>
+  <%= button("Check", to: player_path(@conn, :check, @id), class: "btn check-button") %>
+  </div>
+</div>
 
 <%= if @player.last_result != nil do %>
 <%= render "results.html", result: @player.last_result %>
 <% end %>
 
-<%= button("Check", to: player_path(@conn, :check, @id), class: "btn") %>
+<%= if @player.level > 0 do %>
+<div class="block">
+  <%= render "old-specs.html", specs: @specs %>
+</div>
+<% end %>
 
 <span><%= link "Back", to: player_path(@conn, :index) %></span>

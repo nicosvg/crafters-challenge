@@ -2,24 +2,31 @@
 
 body {
 	background: lightgray;
-	/*border: solid 1px red;*/
 	display: flex;
 	flex: 1;
 }
 
 main {
-	/*border: solid 1px #4cae4c;*/
 }
 
-.check-result {
+.player-form {
+	margin: 8px;
+}
+
+.player-form div {
+	padding: 8px;
+	display: flex;
+}
+
+.player-form label {
+	width: 25%;
 }
 
 .block {
-	border: 1px solid #1b6d85;
-	box-shadow: 5px 5px 5px #1b6d85;
 	border-radius: 5px;
 	padding: 8px;
 	margin: 8px 0px;
+	background-color: aliceblue;
 }
 
 .result-line {
@@ -35,14 +42,38 @@ main {
 	width: 20%;
 }
 
-.error{
+.error {
 	color: #cd1c1a;
 }
 
-.ok{
+.ok {
 	color: #1db91f;
 }
 
 .result-line-message {
 	/*width: 60%;*/
+}
+
+.player-title {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.player-title-score {
+	color: steelblue;
+}
+
+.centered {
+	display: flex;
+	justify-content: center;
+}
+
+.check-button {
+	font-size: 2rem;
+	height: 3em;
+	width: 10em;
 }

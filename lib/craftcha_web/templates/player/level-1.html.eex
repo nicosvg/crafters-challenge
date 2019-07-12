@@ -1,6 +1,0 @@
-<div>Implement a new service that gives the price of an item.</div>
-<div>The route is: '/items/:id/price'</div>
-<div>Use the following database:</div>
-<ul>
-<li></li>
-</ul>

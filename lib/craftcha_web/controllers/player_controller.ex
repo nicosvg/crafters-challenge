@@ -9,8 +9,12 @@ defmodule CraftchaWeb.PlayerController do
 
   def create(conn, _params) do
     %{"player" => player} = conn.params
-    %{"hostname" => hostname, "name" => name} = player
-    {:ok, new_player_id} = Player.add_player(hostname, name)
+    %{"hostname" => hostname, "name" => name, "port" => port} = player
+    ip = case hostname do
+      "" -> :inet_parse.ntoa(conn.remote_ip)
+      _ -> hostname
+    end
+    {:ok, new_player_id} = Player.add_player(ip, name, port)
     redirect(conn, to: player_path(conn, :show, new_player_id))
   end
 
@@ -20,7 +24,7 @@ defmodule CraftchaWeb.PlayerController do
   end
 
   def check(conn, %{"id" => id}) do
-    result = Player.check(id)
+    Player.check(id)
     redirect(conn, to: player_path(conn, :show, id))
   end
 
@@ -32,10 +36,6 @@ defmodule CraftchaWeb.PlayerController do
     else
       render(conn, "show.html", player: player, id: id, specs: specs)
     end
-  end
-
-  def me(%{remote_ip: ip}, params) do
-    IO.inspect(ip, label: "ip")
   end
 
 end
