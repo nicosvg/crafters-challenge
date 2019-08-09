@@ -9,3 +9,4 @@
     <div><%= submit "Create" %></div>
 <% end %>
 </div>
+-staged
