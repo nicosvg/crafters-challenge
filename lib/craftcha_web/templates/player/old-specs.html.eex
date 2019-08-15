@@ -1,0 +1,16 @@
+<div class="specs">
+<h3>Previous user stories</h3>
+
+<%= for {spec, level}  <- Enum.with_index(Enum.drop(@specs, -1)) do %>
+
+<div class="level-spec">
+<b>
+    Level <%= level %>
+</b>
+<div class="level-spec-content">
+<%= {:safe, Earmark.as_html!(spec)} %>
+</div>
+</div>
+<% end %>
+
+</div>

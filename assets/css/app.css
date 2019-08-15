@@ -54,13 +54,27 @@ main {
 	/*width: 60%;*/
 }
 
-.player-title {
+.player-header {
+	background: #EEEEEE;
+	padding: 1rem;
+	box-shadow: 4px 4px 4px #999999;
+	border-radius: 5px;
+	margin-bottom: 1rem;
+}
+
+.row {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
 	align-items: center;
-	font-size: 3rem;
-	margin-bottom: 1rem;
+}
+
+.space-between {
+	justify-content: space-between;
+}
+
+.player-title {
+	font-size: 2rem;
+	margin-bottom: 8px;
 }
 
 .player-title-score {
@@ -76,4 +90,12 @@ main {
 	font-size: 2rem;
 	height: 3em;
 	width: 10em;
+}
+
+.container {
+
+}
+
+.level-spec-content {
+	margin: 24px;
 }

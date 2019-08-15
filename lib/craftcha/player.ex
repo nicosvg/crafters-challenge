@@ -139,7 +139,8 @@ defmodule Craftcha.Player do
   end
 
   def has_finished(uuid) do
-    get_player(uuid).level == get_max_level()
+    IO.inspect(get_player(uuid).level)
+    get_player(uuid).level > get_max_level()
   end
 
   def get_max_level(), do: Scenario.get_max_level()

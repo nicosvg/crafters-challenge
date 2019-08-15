@@ -1,9 +1,15 @@
-<div class="player-title">
-  <div class="player-title-name"><%= @player.name%> (level <%= @player.level %>)</div>
-  <div class="player-title-score"><%= @player.score %> pts</div>
+<div class="player-header">
+    <div class="player-title row space-between">
+      <div class="player-title-level">Level <%= @player.level %></div>
+      <div class="player-title-score"><%= @player.score %> pts</div>
+    </div>
+    <div class="row space-between">
+            <div class="player-title-name"><%= @player.name%></div>
+        <div class="player-title-host">
+            http://<%=@player.hostname%>:<%=@player.port%>
+        </div>
+    </div>
 </div>
-http://<%=@player.hostname%>:<%=@player.port%>
-
 <div class="level-spec-content">
 <%= {:safe, Earmark.as_html!(Enum.at(@specs, -1))} %>
 </div>

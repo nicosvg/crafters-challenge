@@ -5,7 +5,7 @@ defmodule Craftcha.Scenario.FizzBuzz do
   alias Craftcha.Validation
   alias Craftcha.HttpRequest
 
-  @max_level 3
+  @max_level 5
 
   def get_max_level() do
     @max_level
@@ -20,6 +20,8 @@ defmodule Craftcha.Scenario.FizzBuzz do
       1 -> get_tests_level_1()
       2 -> get_tests_level_2()
       3 -> get_tests_level_3()
+      4 -> get_tests_level_4()
+      5 -> get_tests_level_5()
     end
   end
 
@@ -113,6 +115,38 @@ defmodule Craftcha.Scenario.FizzBuzz do
     {request, validations}
   end
 
+  @doc """
+  """
+  def get_tests_level_4 do
+    request = %HttpRequest{verb: :get, route: '/fizzbuzz', params: [{'value', '13'}]}
+    checks = [&Validation.check_body(&1, 'Fizz'), &Validation.check_status(&1, 200)]
+    first_test = {request, checks}
+
+    request = %HttpRequest{verb: :get, route: '/fizzbuzz', params: [{'value', '34'}]}
+    checks = [&Validation.check_body(&1, 'Fizz')]
+    second_test = {request, checks}
+
+    request = %HttpRequest{verb: :get, route: '/fizzbuzz', params: [{'value', '35'}]}
+    checks = [&Validation.check_body(&1, 'FizzBuzz')]
+    third_test = {request, checks}
+
+    [first_test, second_test, third_test]
+  end
+
+  @doc """
+  """
+  def get_tests_level_5 do
+    request = %HttpRequest{verb: :get, route: '/fizzbuzz', params: [{'value', '56'}]}
+    checks = [&Validation.check_body(&1, 'Buzz'), &Validation.check_status(&1, 200)]
+    first_test = {request, checks}
+
+    request = %HttpRequest{verb: :get, route: '/fizzbuzz', params: [{'value', '51'}]}
+    checks = [&Validation.check_body(&1, 'FizzBuzz'), &Validation.check_status(&1, 200)]
+    second_test = {request, checks}
+
+    [first_test, second_test]
+  end
+
   def get_instructions(level) do
     case level do
       0 -> "
@@ -122,7 +156,7 @@ We will implement the game of FizzBuzz step by step
 
 Please start your server on the port you defined when registering.
 Your server should:
-- Answer 200 OK with the body *Hello Name* when the route _/_ is called with the method GET, the name to add
+- Answer 200 OK with the body *Hello {Name}* when the route */* is called with the method GET, the name to add
 to the message will be passed in the query parameter _name_
 - Answer 404 ERROR when any other route is called
 "
@@ -148,6 +182,20 @@ The previous rules still apply
 
 A GET on _/fizzbuzz_ with a query param *value* (integer) should now return:
 - *'FizzBuzz'* if the value is both a multiple of 3 and 5
+
+The previous rules still apply
+"
+      4 -> "
+## Fizz, new rules
+
+A number is 'Fizz' if it is divisible by 3 or if it has a 3 in it
+
+The previous rules still apply
+"
+      5 -> "
+## Buzz, new rules
+
+A number is 'Buzz' if it is divisible by 5 or if it has a 5 in it
 
 The previous rules still apply
 "

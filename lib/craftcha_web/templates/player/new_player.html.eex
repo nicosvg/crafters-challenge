@@ -4,7 +4,7 @@
 <div class="player-form block">
 <%= form_for @conn, player_path(@conn, :create), [as: :player], fn f -> %>
     <div><label>Name</label><%= text_input f, :name %></div>
-    <div><label>Hostname</label><%= text_input f, :hostname %></div>
+    <!-- <div><label>Hostname</label><%= text_input f, :hostname %></div> -->
     <div><label>Port</label><%= text_input f, :port %></div>
     <div><%= submit "Create" %></div>
 <% end %>

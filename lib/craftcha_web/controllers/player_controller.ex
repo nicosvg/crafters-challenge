@@ -30,10 +30,10 @@ defmodule CraftchaWeb.PlayerController do
 
   def show(conn, %{"id" => id}) do
     player = Player.get_player(id)
-    specs = Enum.map(0..player.level, &Scenario.get_instructions/1)
     if (Player.has_finished(id)) do
       render(conn, "end.html", player: player, id: id)
     else
+      specs = Enum.map(0..player.level, &Scenario.get_instructions/1)
       render(conn, "show.html", player: player, id: id, specs: specs)
     end
   end

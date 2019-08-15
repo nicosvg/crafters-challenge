@@ -11,15 +11,12 @@
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
-  <body>
-    <div class="container">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li></li>
-          </ul>
-        </nav>
-        <span >Crafter's Challenge</span>
+  <body class="">
+    <div class="container col-6 col-mx-auto">
+      <header class="navbar">
+        <section class="navbar-section">
+            <span >Crafter's Challenge</span>
+        </section>
       </header>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>

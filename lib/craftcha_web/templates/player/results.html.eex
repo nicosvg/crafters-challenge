@@ -1,5 +1,5 @@
 <div class="block check-result">
-<h3>Last check result</h3>
+<h3>Last result</h3>
 <%= for {r, index}  <- Enum.with_index(@result) do %>
 <div class="result-line">
     <div class="result-line-level">Level <%= index %></div>
