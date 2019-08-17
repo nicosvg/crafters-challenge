@@ -1,6 +1,6 @@
 <h1>Current players</h1>8
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -23,4 +23,6 @@
   </tbody>
 </table>
 
-<span><%= link "New Player", to: player_path(@conn, :new) %></span>
+<div class="centered margin-2">
+<%= button("Join session", to: player_path(@conn, :new), method: "get", class: "btn btn-primary") %>
+</div>
