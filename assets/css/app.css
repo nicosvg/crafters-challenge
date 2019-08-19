@@ -1,7 +1,18 @@
 /* This file is for your main application css. */
+:root {
+	--primary-color: #fae8eb;
+	--secondary-color: #ca895f;
+	--accent-color: #f18f01;
+	--ok-color: #99c24d;
+	--nok-color: #c2301b;
+	--background-color: #202527;
+	--alt-background-color: #34383a;
+}
+
 
 body {
-	background: lightgray;
+	background-color: var(--background-color);
+	color: var(--primary-color);
 	display: flex;
 	flex: 1;
 }
@@ -26,7 +37,7 @@ main {
 	border-radius: 5px;
 	padding: 8px;
 	margin: 8px 0px;
-	background-color: aliceblue;
+	background-color: var(--alt-background-color);
 }
 
 .result-line {
@@ -43,11 +54,11 @@ main {
 }
 
 .error {
-	color: #cd1c1a;
+	color: var(--nok-color);
 }
 
 .ok {
-	color: #1db91f;
+	color: var(--ok-color);
 }
 
 .result-line-message {
@@ -55,9 +66,9 @@ main {
 }
 
 .player-header {
-	background: #EEEEEE;
+	background: var(--alt-background-color);
 	padding: 1rem;
-	box-shadow: 4px 4px 4px #999999;
+	/*box-shadow: 4px 4px 4px #999999;*/
 	border-radius: 5px;
 	margin-bottom: 1rem;
 }
@@ -78,7 +89,7 @@ main {
 }
 
 .player-title-score {
-	color: steelblue;
+	color: var(--accent-color);
 }
 
 .centered {
@@ -105,4 +116,18 @@ main {
 }
 
 .margin-top {
+}
+
+.hidden {
+	display: none;
+}
+
+.level-spec-content h1 {
+	font-size: 1.5rem;
+	color: var(--secondary-color);
+}
+
+.level-spec-content h2 {
+	font-size: 1.2rem;
+	color: var(--secondary-color);
 }

@@ -25,9 +25,9 @@
 <% end %>
 
 <%= if @player.level > 0 do %>
-<div class="block">
+<div class="block hidden">
   <%= render "old-specs.html", specs: @specs %>
 </div>
 <% end %>
 
-<span><%= link "Back", to: player_path(@conn, :index) %></span>
+<span class="centered margin-2"><%= link "Back", to: player_path(@conn, :index) %></span>

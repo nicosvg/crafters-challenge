@@ -286,8 +286,8 @@ html {
 }
 
 body {
-  background: #fff;
-  color: #3b4351;
+  /*background: #fff;*/
+  color: var(--primary-color);
   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   font-size: .8rem;
   overflow-x: hidden;
@@ -554,10 +554,10 @@ html:lang(ko),
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: #fff;
-  border: .05rem solid #5755d9;
+  background: var(--background-color);
+  border: .05rem solid var(--accent-color);
   border-radius: .1rem;
-  color: #5755d9;
+  color: var(--accent-color);
   cursor: pointer;
   display: inline-block;
   font-size: .8rem;
@@ -582,8 +582,8 @@ html:lang(ko),
 
 .btn:focus,
 .btn:hover {
-  background: #f1f1fc;
-  border-color: #4b48d6;
+  background: var(--alt-background-color);
+  border-color: var(--accent-color);
   text-decoration: none;
 }
 
