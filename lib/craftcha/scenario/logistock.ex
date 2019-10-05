@@ -36,11 +36,19 @@ defmodule Craftcha.Scenario.Logistock do
     validations = [&Validation.check_status(&1, 404)]
     second_test = {request, validations}
 
-    [first_test, second_test]
+    third_test = {
+      %HttpRequest{verb: :get, route: "", params: [{'name', 'Alice'}]},
+      [
+        &Validation.check_status(&1, 200),
+        &Validation.check_body(&1, 'Hello Alice')
+      ]
+    }
+
+    [first_test, second_test, third_test]
   end
 
   def get_tests_level_1 do
-    request = %HttpRequest{verb: :get, route: "/api/bill", params: [{'test', 'test'}]}
+    request = %HttpRequest{verb: :get, route: "/api/price", params: [{'test', 'test'}]}
     checks = [
       &Validation.check_status(&1, 200),
       &Validation.check_body(&1, 'Coucou')
@@ -68,17 +76,30 @@ Every level passed gives 100 points, a wrong anwer on a new level loses 10 point
 and a wrong answer on a previous level (regression) costs 50 pts.
 "
       1 -> "
-      Your first task will be to compute the total price of a command
+# Get price for one article
 
-|Request    |Values                   |
-|-----------|-------------------------|
-|Route      |/api/bill                |
-|Body       |List of items (see below)|
+Your first task will be to compute the total price of a command
 
-|Response   |Values                   |
-|-----------|-------------------------|
-|Route      |/api/bill                |
-|Body       |List of items (see below)|
+## Request
+
+```
+Method: GET
+Route: /api/price
+Query params:
+  ref: item reference
+```
+
+## Response
+The response should contain the price of the item as a string (with currency symbol)
+
+## Data
+|Reference     |Price |
+|--------------|------|
+|123456789432  |12.95€|
+|542512394625  | 0.15€|
+|155612348958  |69.90€|
+|087123485142  |15.00€|
+
 "
       2 -> ""
       3 -> ""

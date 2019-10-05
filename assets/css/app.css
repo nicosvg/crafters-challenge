@@ -36,7 +36,7 @@ main {
 .block {
 	border-radius: 5px;
 	padding: 8px;
-	margin: 8px 0px;
+	margin: 8px 0;
 	background-color: var(--alt-background-color);
 }
 
@@ -131,3 +131,19 @@ main {
 	font-size: 1.2rem;
 	color: var(--secondary-color);
 }
+
+.level-spec-content pre {
+	background-color: var(--alt-background-color);
+	padding: 1rem;
+}
+
+.level-spec-content code {
+	background-color: var(--alt-background-color);
+	color: var(--accent-color);
+}
+
+.level-spec-content table {
+	background-color: var(--alt-background-color);
+}
+
+
