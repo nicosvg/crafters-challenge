@@ -15,7 +15,7 @@
     <div class="container col-6 col-mx-auto">
       <header class="navbar">
         <section class="navbar-section">
-            <span >Crafter's Challenge</span>
+            <img alt="Crafters Challenge" src="<%= static_path(@conn, "/images/logo_wide.png") %>" style="max-height: 80px;">
         </section>
       </header>
 
