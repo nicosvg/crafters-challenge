@@ -1,3 +1,5 @@
+![logo](./assets/static/images/logo.png)
+
 # Crafters challenge
 
 This is a coding workshop/challenge, inspired by 
