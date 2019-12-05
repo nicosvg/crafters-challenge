@@ -23,7 +23,7 @@ config :logger, :console,
   metadata: [:request_id]
 
 # Configure current scenario
-config :craftcha, :scenario, Craftcha.Scenario.Logistock
+config :craftcha, :scenario, Craftcha.Scenario.FizzBuzz
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
