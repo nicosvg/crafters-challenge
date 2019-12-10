@@ -9,7 +9,8 @@ defmodule Craftcha.Application do
     # Define workers and child supervisors to be supervised
     children = [
       # Start the Ecto repository
-      supervisor(Craftcha.Repo, []),
+      # No need for a database now (everything in memory, we don't save workshop state)
+#      supervisor(Craftcha.Repo, []),
       # Start the endpoint when the application starts
       supervisor(CraftchaWeb.Endpoint, []),
       # Start your own worker by calling: Craftcha.Worker.start_link(arg1, arg2, arg3)
