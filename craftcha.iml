@@ -115,5 +115,6 @@
     <orderEntry type="library" name="sbroker" level="project" />
     <orderEntry type="library" name="plumber_girl" level="project" />
     <orderEntry type="library" name="ex_spec" level="project" />
+    <orderEntry type="library" name="httpoison" level="project" />
   </component>
 </module>

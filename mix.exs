@@ -20,7 +20,8 @@ defmodule Craftcha.Mixfile do
   def application do
     [
       mod: {Craftcha.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      # Needs :inets to user :httpc
+      extra_applications: [:logger, :runtime_tools, :inets]
     ]
   end
 
@@ -33,6 +34,7 @@ defmodule Craftcha.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:httpoison, "~> 1.6"},
       {:phoenix, "~> 1.3.0"},
       {:phoenix_pubsub, "~> 1.0"},
       {:phoenix_ecto, "~> 3.2"},
@@ -43,7 +45,7 @@ defmodule Craftcha.Mixfile do
       {:cowboy, "~> 1.0"},
       {:plug_cowboy, "~> 1.0"},
       {:plumber_girl, "~> 0.9.5"},
-      { :earmark, "~> 1.3.2" }
+      {:earmark, "~> 1.3.2"}
     ]
   end
 

@@ -1,8 +1,7 @@
 <div class="jumbotron">
   <h2><%= gettext "Welcome to Software Crafters' Challenge!" %></h2>
-  <p class="lead">Hello you!</p>
 </div>
 <div>
-  <%= link("Add a new player", to: player_path(@conn, :new)) %>
+  <%= link("Join session", to: player_path(@conn, :new)) %>
 </div>
 
