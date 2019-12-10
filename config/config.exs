@@ -6,8 +6,8 @@
 use Mix.Config
 
 # General application configuration
-config :craftcha,
-  ecto_repos: [Craftcha.Repo]
+#config :craftcha,
+#  ecto_repos: [Craftcha.Repo]
 
 # Configures the endpoint
 config :craftcha, CraftchaWeb.Endpoint,
