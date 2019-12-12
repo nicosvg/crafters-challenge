@@ -57,9 +57,9 @@ defmodule Craftcha.Player do
   end
 
   def check(uuid) do
-    playerLevel = get_player(uuid).level
-    hostname = get_player(uuid).hostname
-    result = Enum.map(0..playerLevel, fn level -> check_level(hostname, level) end)
+    player = get_player(uuid)
+    playerLevel = player.level
+    result = Enum.map(0..playerLevel, fn level -> check_level(player, level) end)
     Session.set_last_result(uuid, result)
 
     points = result
@@ -131,8 +131,8 @@ defmodule Craftcha.Player do
     {result, response} = HttpRequest.do_http_request(request)
     case result do
       :ok ->
-        parsedResponse = HttpRequest.parseResponse(response)
-        Enum.map(check_functions, fn check -> check.(parsedResponse) end)
+        parsed_response = HttpRequest.parse_response(response)
+        Enum.map(check_functions, fn check -> check.(parsed_response) end)
       :error ->
         [{:error, "Could not connect"}]
     end
@@ -145,8 +145,8 @@ defmodule Craftcha.Player do
 
   def get_max_level(), do: Scenario.get_max_level()
 
-  def perform_test(hostname, {req, checks}) do
-    complete_request = %{req | hostname: hostname}
+  def perform_test(player, {req, checks}) do
+    complete_request = %{req | hostname: player.hostname, port: player.port}
     check_request(complete_request, checks)
   end
 
@@ -157,9 +157,9 @@ defmodule Craftcha.Player do
     end
   end
 
-  def check_level(hostname, level) do
+  def check_level(player, level) do
     Scenario.get_level_tests(level)
-    |> Enum.flat_map(&perform_test(hostname, &1))
+    |> Enum.flat_map(&perform_test(player, &1))
     |> Enum.reduce_while({:ok, ""}, &reduce_tests/2)
   end
 

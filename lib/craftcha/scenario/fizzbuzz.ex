@@ -26,17 +26,17 @@ defmodule Craftcha.Scenario.FizzBuzz do
   end
 
   @doc """
-  The player must return a 200 OK with 'Hello Bob!' as a response
+  The player must return a 200 OK with "Hello Bob!" as a response
   """
   def get_tests_level_0 do
-    request = %HttpRequest{verb: :get, route: "", params: [{'name', 'Bob'}]}
+    request = %HttpRequest{verb: :get, route: "", params: [{"name", "Bob"}]}
     checks = [
       &Validation.check_status(&1, 200),
-      &Validation.check_body(&1, 'Hello Bob')
+      &Validation.check_body(&1, "Hello Bob")
     ]
     first_test = {request, checks}
 
-    request = %HttpRequest{verb: :get, route: '/noroute'}
+    request = %HttpRequest{verb: :get, route: "/noroute"}
     validations = [&Validation.check_status(&1, 404)]
     second_test = {request, validations}
 
@@ -48,26 +48,26 @@ defmodule Craftcha.Scenario.FizzBuzz do
   end
 
   def test_level_1_0 do
-    request = %HttpRequest{verb: :get, route: '/fizzbuzz', params: [{'value', '3'}]}
-    validations = [&Validation.check_body(&1, 'Fizz'), &Validation.check_status(&1, 200)]
+    request = %HttpRequest{verb: :get, route: "/fizzbuzz", params: [{"value", "3"}]}
+    validations = [&Validation.check_body(&1, "Fizz"), &Validation.check_status(&1, 200)]
     {request, validations}
   end
 
   def test_level_1_1 do
-    request = %HttpRequest{verb: :get, route: '/fizzbuzz', params: [{'value', '2'}]}
-    validations = [&Validation.check_body(&1, '2'), &Validation.check_status(&1, 200)]
+    request = %HttpRequest{verb: :get, route: "/fizzbuzz", params: [{"value", "2"}]}
+    validations = [&Validation.check_body(&1, "2"), &Validation.check_status(&1, 200)]
     {request, validations}
   end
 
   def test_level_1_2 do
-    request = %HttpRequest{verb: :get, route: '/fizzbuzz', params: [{'value', '7'}]}
-    validations = [&Validation.check_body(&1, '7')]
+    request = %HttpRequest{verb: :get, route: "/fizzbuzz", params: [{"value", "7"}]}
+    validations = [&Validation.check_body(&1, "7")]
     {request, validations}
   end
 
   def test_level_1_4 do
-    request = %HttpRequest{verb: :get, route: '/fizzbuzz', params: [{'value', '12'}]}
-    validations = [&Validation.check_body(&1, 'Fizz'), &Validation.check_status(&1, 200)]
+    request = %HttpRequest{verb: :get, route: "/fizzbuzz", params: [{"value", "12"}]}
+    validations = [&Validation.check_body(&1, "Fizz"), &Validation.check_status(&1, 200)]
     {request, validations}
   end
 
@@ -76,20 +76,20 @@ defmodule Craftcha.Scenario.FizzBuzz do
   end
 
   def test_level_2_0 do
-    request = %HttpRequest{verb: :get, route: '/fizzbuzz', params: [{'value', '5'}]}
-    validations = [&Validation.check_body(&1, 'Buzz'), &Validation.check_status(&1, 200)]
+    request = %HttpRequest{verb: :get, route: "/fizzbuzz", params: [{"value", "5"}]}
+    validations = [&Validation.check_body(&1, "Buzz"), &Validation.check_status(&1, 200)]
     {request, validations}
   end
 
   def test_level_2_1 do
-    request = %HttpRequest{verb: :get, route: '/fizzbuzz', params: [{'value', '20'}]}
-    validations = [&Validation.check_body(&1, 'Buzz'), &Validation.check_status(&1, 200)]
+    request = %HttpRequest{verb: :get, route: "/fizzbuzz", params: [{"value", "20"}]}
+    validations = [&Validation.check_body(&1, "Buzz"), &Validation.check_status(&1, 200)]
     {request, validations}
   end
 
   def test_level_2_2 do
-    request = %HttpRequest{verb: :get, route: '/fizzbuzz', params: [{'value', '4'}]}
-    validations = [&Validation.check_body(&1, '4')]
+    request = %HttpRequest{verb: :get, route: "/fizzbuzz", params: [{"value", "4"}]}
+    validations = [&Validation.check_body(&1, "4")]
     {request, validations}
   end
 
@@ -98,36 +98,36 @@ defmodule Craftcha.Scenario.FizzBuzz do
   end
 
   def test_level_3_0 do
-    request = %HttpRequest{verb: :get, route: '/fizzbuzz', params: [{'value', '15'}]}
-    validations = [&Validation.check_body(&1, 'FizzBuzz'), &Validation.check_status(&1, 200)]
+    request = %HttpRequest{verb: :get, route: "/fizzbuzz", params: [{"value", "15"}]}
+    validations = [&Validation.check_body(&1, "FizzBuzz"), &Validation.check_status(&1, 200)]
     {request, validations}
   end
 
   def test_level_3_1 do
-    request = %HttpRequest{verb: :get, route: '/fizzbuzz', params: [{'value', '30'}]}
-    validations = [&Validation.check_body(&1, 'FizzBuzz'), &Validation.check_status(&1, 200)]
+    request = %HttpRequest{verb: :get, route: "/fizzbuzz", params: [{"value", "30"}]}
+    validations = [&Validation.check_body(&1, "FizzBuzz"), &Validation.check_status(&1, 200)]
     {request, validations}
   end
 
   def test_level_3_2 do
-    request = %HttpRequest{verb: :get, route: '/fizzbuzz', params: [{'value', '1500'}]}
-    validations = [&Validation.check_body(&1, 'FizzBuzz')]
+    request = %HttpRequest{verb: :get, route: "/fizzbuzz", params: [{"value", "1500"}]}
+    validations = [&Validation.check_body(&1, "FizzBuzz")]
     {request, validations}
   end
 
   @doc """
   """
   def get_tests_level_4 do
-    request = %HttpRequest{verb: :get, route: '/fizzbuzz', params: [{'value', '13'}]}
-    checks = [&Validation.check_body(&1, 'Fizz'), &Validation.check_status(&1, 200)]
+    request = %HttpRequest{verb: :get, route: "/fizzbuzz", params: [{"value", "13"}]}
+    checks = [&Validation.check_body(&1, "Fizz"), &Validation.check_status(&1, 200)]
     first_test = {request, checks}
 
-    request = %HttpRequest{verb: :get, route: '/fizzbuzz', params: [{'value', '34'}]}
-    checks = [&Validation.check_body(&1, 'Fizz')]
+    request = %HttpRequest{verb: :get, route: "/fizzbuzz", params: [{"value", "34"}]}
+    checks = [&Validation.check_body(&1, "Fizz")]
     second_test = {request, checks}
 
-    request = %HttpRequest{verb: :get, route: '/fizzbuzz', params: [{'value', '35'}]}
-    checks = [&Validation.check_body(&1, 'FizzBuzz')]
+    request = %HttpRequest{verb: :get, route: "/fizzbuzz", params: [{"value", "35"}]}
+    checks = [&Validation.check_body(&1, "FizzBuzz")]
     third_test = {request, checks}
 
     [first_test, second_test, third_test]
@@ -136,12 +136,12 @@ defmodule Craftcha.Scenario.FizzBuzz do
   @doc """
   """
   def get_tests_level_5 do
-    request = %HttpRequest{verb: :get, route: '/fizzbuzz', params: [{'value', '56'}]}
-    checks = [&Validation.check_body(&1, 'Buzz'), &Validation.check_status(&1, 200)]
+    request = %HttpRequest{verb: :get, route: "/fizzbuzz", params: [{"value", "56"}]}
+    checks = [&Validation.check_body(&1, "Buzz"), &Validation.check_status(&1, 200)]
     first_test = {request, checks}
 
-    request = %HttpRequest{verb: :get, route: '/fizzbuzz', params: [{'value', '51'}]}
-    checks = [&Validation.check_body(&1, 'FizzBuzz'), &Validation.check_status(&1, 200)]
+    request = %HttpRequest{verb: :get, route: "/fizzbuzz", params: [{"value", "51"}]}
+    checks = [&Validation.check_body(&1, "FizzBuzz"), &Validation.check_status(&1, 200)]
     second_test = {request, checks}
 
     [first_test, second_test]

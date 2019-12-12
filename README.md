@@ -44,6 +44,22 @@ Edit the following line in file `config.exs`: replace FizzBuzz by any other scen
 config :craftcha, :scenario, Craftcha.Scenario.FizzBuzz
 ```
 
+## Docker image
+
+To build the Docker image, run 
+
+```bash
+docker build -t crafters .
+```
+
+To run the image, execute the following command:
+
+```bash
+docker run -e PORT=4000 -p 4000:4000  crafters:latest
+```
+
+Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+
 ## Credits
 
 Created my free logo at [LogoMakr.com](https://my.logomakr.com/)

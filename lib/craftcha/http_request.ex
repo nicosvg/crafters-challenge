@@ -1,28 +1,45 @@
 defmodule Craftcha.HttpRequest do
   alias Craftcha.HttpResponse
 
-  defstruct verb: :get, hostname: 'localhost', port: '3000', route: '/', params: []
+  defstruct verb: :get, hostname: "localhost", port: "3000", route: "/", params: [], body: {}
 
   @doc """
   Do an Http request
   """
   def do_http_request(http_request) do
     IO.inspect(http_request, label: "do http request")
-    url = 'http://' ++ to_charlist(http_request.hostname) ++ ':' ++  to_charlist(http_request.port) ++ to_charlist(http_request.route)
-    url_with_params = if length(http_request.params) > 0 do
-       Enum.reduce(http_request.params, url ++ '?', fn {key, value}, acc -> acc ++ key ++ '=' ++ value end)
-    else
-      url
+    case http_request.verb do
+      :get -> send_get(http_request)
     end
-    IO.inspect(url_with_params, label: "url")
-    :httpc.request(http_request.verb, {url_with_params, []}, [], [])
+  end
+
+  def send_get(http_request) do
+    client = getClient()
+    base_url = get_base_url(http_request)
+    IO.inspect(base_url, label: "base url")
+    url= Tesla.build_url(base_url, http_request.params)
+    response = Tesla.get(client, url)
+    IO.inspect(response, label: "GET response")
   end
 
   @doc """
   Parse an http client response
   """
-  def parseResponse({{_, status, _}, _headers, res}) do
-    %HttpResponse{status: status, body: res}
+  def parse_response(response) do
+    %HttpResponse{status: response.status, body: response.body}
   end
+
+  def getClient() do
+    middleware = [
+      Tesla.Middleware.JSON
+    ]
+
+    Tesla.client(middleware)
+  end
+
+  def get_base_url(http_request) do
+    "http://" <> http_request.hostname <> ":" <>  http_request.port <> http_request.route
+  end
+
 
 end

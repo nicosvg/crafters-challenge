@@ -3,7 +3,7 @@ defmodule CraftchaWeb.PlayerController do
   alias Craftcha.Player
   alias Craftcha.Scenario
 
-  @player_defaults %{"hostname" => "", "name" => "", "port" => "3000"}
+  @player_defaults %{"hostname" => "", "name" => "", "port" => ""}
 
   def new(conn, _params) do
     render conn, "new_player.html"
@@ -11,14 +11,20 @@ defmodule CraftchaWeb.PlayerController do
 
   def create(conn, _params) do
     %{"player" => player} = conn.params
-    %{"hostname" => hostname, "name" => name, "port" => port} = Map.merge(@player_defaults, player, &keep_not_empty/3)
+    %{"hostname" => form_hostname, "name" => name, "port" => port} = Map.merge(@player_defaults, player, &keep_not_empty/3)
 
     IO.inspect(port, label: "port")
 
+    hostname = case form_hostname do
+      "" -> to_string :inet_parse.ntoa(conn.remote_ip)
+      _ -> form_hostname
+    end
+    # Check for ipv6 mapping, not supported by http client, converting to ipv4 format
     ip = case hostname do
-      "" -> :inet_parse.ntoa(conn.remote_ip)
+      "::ffff:" <> ip -> ip
       _ -> hostname
     end
+
     {:ok, new_player_id} = Player.add_player(ip, name, port)
     redirect(conn, to: player_path(conn, :show, new_player_id))
   end
