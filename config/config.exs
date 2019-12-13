@@ -23,7 +23,7 @@ config :logger, :console,
   metadata: [:request_id]
 
 # Configure current scenario
-config :craftcha, :scenario, Craftcha.Scenario.FizzBuzz
+config :craftcha, :scenario, Craftcha.Scenario.Ecommerce
 
 # Configure Tesla adapter (http client)
 config :tesla, adapter: Tesla.Adapter.Hackney

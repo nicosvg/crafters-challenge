@@ -1,5 +1,5 @@
 ### GAME SPECIFIC ###
-defmodule Craftcha.Scenario.Logistock do
+defmodule Craftcha.Scenario.Ecommerce do
   @behaviour Craftcha.Scenario
 
   alias Craftcha.Validation
@@ -22,47 +22,52 @@ defmodule Craftcha.Scenario.Logistock do
   end
 
   @doc """
-  The player must return a 200 OK with 'Hello Bob!' as a response
+  The player must return a 200 OK with "Hello Bob!" as a response
   """
   def get_tests_level_0 do
-    request = %HttpRequest{verb: :get, route: "", params: [{'name', 'Bob'}]}
+    request = %HttpRequest{verb: :get, route: "", params: [{"name", "Bob"}]}
     checks = [
       &Validation.check_status(&1, 200),
-      &Validation.check_body(&1, 'Hello Bob')
+      &Validation.check_body(&1, "Hello Bob")
     ]
-    first_test = {request, checks}
+    test_1 = {request, checks}
 
-    request = %HttpRequest{verb: :get, route: '/noroute'}
+    request = %HttpRequest{verb: :get, route: "/noroute"}
     validations = [&Validation.check_status(&1, 404)]
-    second_test = {request, validations}
+    test_2 = {request, validations}
 
-    third_test = {
-      %HttpRequest{verb: :get, route: "", params: [{'name', 'Alice'}]},
-      [
-        &Validation.check_status(&1, 200),
-        &Validation.check_body(&1, 'Hello Alice')
-      ]
-    }
-
-    [first_test, second_test, third_test]
+    [test_1, test_2]
   end
 
   def get_tests_level_1 do
-    request = %HttpRequest{verb: :get, route: "/api/price", params: [{'test', 'test'}]}
+    request = %HttpRequest{verb: :get, route: "/api/price", params: [{"ref", "123456789432"}]}
     checks = [
       &Validation.check_status(&1, 200),
-      &Validation.check_body(&1, 'Coucou')
+      &Validation.check_body(&1, "12.95€")
     ]
-    first_test = {request, checks}
+    test_1 = {request, checks}
 
-    [first_test]
+    request = %HttpRequest{verb: :get, route: "/api/price", params: [{"ref", "000"}]}
+    checks = [
+      &Validation.check_status(&1, 400),
+    ]
+    test_2 = {request, checks}
+
+    request = %HttpRequest{verb: :get, route: "/api/price", params: [{"ref", "542512394625"}]}
+    checks = [
+      &Validation.check_status(&1, 200),
+      &Validation.check_body(&1, "0.15€")
+    ]
+    test_3 = {request, checks}
+
+    [test_1, test_2, test_3]
   end
 
 
   def get_instructions(level) do
     case level do
       0 -> "
-# Welcome to LogiStock Crafter's API Challenge
+# Welcome to e-commerce Crafter's API Challenge
 
 Please start your server on the port you defined when registering (default is 3000).
 Your server should:
@@ -78,7 +83,7 @@ and a wrong answer on a previous level (regression) costs 50 pts.
       1 -> "
 # Get price for one article
 
-Your first task will be to compute the total price of a command
+Your first task will be to compute the total price of a command (only one article by command)
 
 ## Request
 
@@ -91,6 +96,11 @@ Query params:
 
 ## Response
 The response should contain the price of the item as a string (with currency symbol)
+
+## Status
+
+- 200 OK when the reference is found
+- 400 when the reference is not found
 
 ## Data
 |Reference     |Price |
