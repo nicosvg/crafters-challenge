@@ -21,7 +21,7 @@ defmodule Craftcha.Mixfile do
     [
       mod: {Craftcha.Application, []},
       # Needs :inets to user :httpc
-      extra_applications: [:logger, :runtime_tools, :inets]
+      extra_applications: [:logger, :runtime_tools]
     ]
   end
 

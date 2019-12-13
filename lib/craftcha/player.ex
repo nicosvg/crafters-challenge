@@ -103,14 +103,12 @@ defmodule Craftcha.Player do
 
   def get_result_list(results), do: Enum.map(results, fn {a, _b} -> a  end)
 
+  def get_error_points(results_list) when length(results_list) <= 1, do: 0
+
   def get_error_points(results_list) do
-    if length(results_list) == 1 do
-      0
-    else
       last = Enum.at(results_list, -1)
       previous_results = Enum.drop results_list, -1
       get_points_for_old_errors(previous_results) + get_points_for_last_level(last)
-    end
   end
 
   def get_points_for_old_errors(previous_results) do
